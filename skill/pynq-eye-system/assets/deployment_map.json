@@ -1,0 +1,293 @@
+{
+  "files": [
+    {
+      "source": "src/ps/shared/shared_fpga.py",
+      "target": "/opt/pynq-shared/shared_fpga.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/shared/hid_bridge.py",
+      "target": "/home/xilinx/ch9329_hid/hid_bridge.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/shared/uart_lite.py",
+      "target": "/home/xilinx/ch9329_hid/uart_lite.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/shared/ch9329.py",
+      "target": "/home/xilinx/ch9329_hid/ch9329.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/oled/oled_iic.py",
+      "target": "/home/xilinx/ch9329_hid/oled_iic.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/shared/button_service.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/button_service.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/shared/wonderecho.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/wonderecho.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/shared/voice_check.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/voice_check.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/device_status.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/device_status.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/gesture_output.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/gesture_output.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/index.html",
+      "target": "/home/xilinx/gesture_demo/camera_web/index.html",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/oled_result.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/oled_result.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/review.html",
+      "target": "/home/xilinx/gesture_demo/camera_web/review.html",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/service.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/service.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/workers.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/workers.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/gesture/mp_handpose.py",
+      "target": "/home/xilinx/gesture_demo/gesture_image_test/mp_handpose.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/gesture/mp_palmdet.py",
+      "target": "/home/xilinx/gesture_demo/gesture_image_test/mp_palmdet.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/gesture/gesture_control.py",
+      "target": "/home/xilinx/gesture_demo/gesture_image_test/gesture_control.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/gesture/hand_tracker.py",
+      "target": "/home/xilinx/gesture_demo/gesture_image_test/hand_tracker.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/gesture_latency_20261028/fast_handpose.py",
+      "target": "/opt/pynq-gesture/fast_handpose.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/gesture_latency_20261028/pose_runtime.py",
+      "target": "/opt/pynq-gesture/pose_runtime.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/gesture_latency_20261028/ncnn_runtime.py",
+      "target": "/opt/pynq-gesture/ncnn_runtime.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/gesture_latency_20261028/libgesture_ncnn.so",
+      "target": "/opt/pynq-gesture/libgesture_ncnn.so",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/gesture_latency_20261028/handpose.ncnn.param",
+      "target": "/opt/pynq-gesture/handpose.ncnn.param",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/gesture_latency_20261028/handpose.ncnn.bin",
+      "target": "/opt/pynq-gesture/handpose.ncnn.bin",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/gesture_latency_20261028/ncnn_license.txt",
+      "target": "/opt/pynq-gesture/ncnn_license.txt",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/custom_layer.py",
+      "target": "/opt/pynq-palm/custom_layer.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/native_layer.py",
+      "target": "/opt/pynq-palm/native_layer.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/palm_rpc.py",
+      "target": "/opt/pynq-palm/palm_rpc.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/palm_service.py",
+      "target": "/opt/pynq-palm/palm_service.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/pl_backend.py",
+      "target": "/opt/pynq-palm/pl_backend.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/libpalm_layer.so",
+      "target": "/opt/pynq-palm/libpalm_layer.so",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/palm_custom.onnx",
+      "target": "/opt/pynq-palm/palm_custom.onnx",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/pynq_shared.bit",
+      "target": "/opt/pynq-palm/pynq_shared.bit",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/pynq_shared.hwh",
+      "target": "/opt/pynq-palm/pynq_shared.hwh",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/weights.npz",
+      "target": "/opt/pynq-palm/weights.npz",
+      "mode": "0644"
+    },
+    {
+      "source": "board/releases/palm_pl_20261028/pynq-palm.service",
+      "target": "/etc/systemd/system/pynq-palm.service",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/eye/infer.py",
+      "target": "/home/xilinx/eye_model/deploy/infer.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/eye/report.py",
+      "target": "/home/xilinx/eye_model/deploy/report.py",
+      "mode": "0644"
+    },
+    {
+      "source": "data/models/eye/mobilenet_v3_small.onnx",
+      "target": "/home/xilinx/eye_model/artifacts/mobilenet_v3_small.onnx",
+      "mode": "0644"
+    },
+    {
+      "source": "data/models/eye/mobilenet_v3_small.json",
+      "target": "/home/xilinx/eye_model/artifacts/mobilenet_v3_small.json",
+      "mode": "0644"
+    },
+    {
+      "source": "data/models/eye/mobile_unet.onnx",
+      "target": "/home/xilinx/eye_model/artifacts/mobile_unet.onnx",
+      "mode": "0644"
+    },
+    {
+      "source": "data/models/eye/mobile_unet.json",
+      "target": "/home/xilinx/eye_model/artifacts/mobile_unet.json",
+      "mode": "0644"
+    },
+    {
+      "source": "data/models/eye/model_config.json",
+      "target": "/home/xilinx/eye_model/artifacts/model_config.json",
+      "mode": "0644"
+    },
+    {
+      "source": "data/models/gesture/handpose.onnx",
+      "target": "/home/xilinx/gesture_demo/gesture_compat/handpose_opencv454.onnx",
+      "mode": "0644"
+    },
+    {
+      "source": "data/models/gesture/palm.onnx",
+      "target": "/home/xilinx/gesture_demo/gesture_models/palm_detection_mediapipe_2023feb.onnx",
+      "mode": "0644"
+    },
+    {
+      "source": "board/config/pynq-fpga.service",
+      "target": "/etc/systemd/system/pynq-fpga.service",
+      "mode": "0644"
+    },
+    {
+      "source": "board/config/pynq-buttons.service",
+      "target": "/etc/systemd/system/pynq-buttons.service",
+      "mode": "0644"
+    },
+    {
+      "source": "board/config/eye-oled.service",
+      "target": "/etc/systemd/system/eye-oled.service",
+      "mode": "0644"
+    },
+    {
+      "source": "board/config/ch9329-hid.service",
+      "target": "/etc/systemd/system/ch9329-hid.service",
+      "mode": "0644"
+    },
+    {
+      "source": "board/config/ch9329-pmoda.conf",
+      "target": "/etc/systemd/system/ch9329-hid.service.d/20-pmoda.conf",
+      "mode": "0644"
+    },
+    {
+      "source": "skill/pynq-eye-system/assets/palm-fpga.conf",
+      "target": "/etc/systemd/system/pynq-fpga.service.d/palm-accel.conf",
+      "mode": "0644"
+    },
+    {
+      "source": "skill/pynq-eye-system/assets/palm-web.conf",
+      "target": "/etc/systemd/system/pynq-camera-web.service.d/palm-accel.conf",
+      "mode": "0644"
+    },
+    {
+      "source": "skill/pynq-eye-system/assets/pose-latency.conf",
+      "target": "/etc/systemd/system/pynq-camera-web.service.d/pose-latency.conf",
+      "mode": "0644"
+    }
+  ],
+  "preconditions": [
+    "Existing configured PYNQ 3.1.1 installation and camera_web base unit",
+    "Confirmed camera roles and runtime libraries",
+    "No active inspection; DMA idle and backups verified before installation"
+  ],
+  "preserve": [
+    "camera_switch/",
+    "camera_web/data/",
+    "inspection reports",
+    "system dependency environment",
+    "existing camera_web base unit"
+  ],
+  "postchecks": [
+    "sha256 for every changed file",
+    "service state and merged drop-ins",
+    "FPGA generation and download count",
+    "existing report/session preserved",
+    "functional acceptance matrix"
+  ]
+}

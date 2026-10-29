@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="csrf-token" content="__CSRF__"><title>PYNQ · 双摄像头工作台</title>
+<style>
+:root{color-scheme:light;--bg:#f4f7fb;--panel:#fff;--border:#dce5ef;--text:#1d2a3a;--muted:#68788c;--accent:#247e8e;--accent-soft:#e8f5f6;--danger:#b54848}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 'Microsoft YaHei',system-ui,sans-serif}button,a,input{font:inherit}button{border:1px solid #b9c9d8;background:#fff;color:var(--text);border-radius:8px;padding:9px 14px;cursor:pointer;box-shadow:0 1px 1px #19304b0d}button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:650}button.danger{border-color:#e1b7b7;color:#9e3535;background:#fff7f7}button:hover:not(:disabled){filter:brightness(.97);transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}a{color:var(--accent)}header{padding:23px max(22px,calc((100vw - 1484px)/2));border-bottom:1px solid var(--border);background:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 2px 15px #274b6610}h1{font-size:24px;letter-spacing:.5px;margin:0}h2{font-size:17px;margin:0}h3{font-size:16px}.sub{color:var(--muted);font-size:13px;margin-top:4px}.pill{border:1px solid var(--border);border-radius:30px;padding:5px 12px;white-space:nowrap;font-size:13px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#e9b85d;margin-right:8px}.dot.ok{background:#35a57c}main{max-width:1484px;margin:auto;padding:22px}.flow{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin:0 0 18px}.flow span{padding:6px 10px;border-radius:6px;background:#eaf0f6}.flow span.active{background:var(--accent-soft);color:#176476;font-weight:600}.toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:16px}.spacer{flex:1}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:var(--panel);border:1px solid var(--border);border-radius:13px;overflow:hidden;box-shadow:0 4px 18px #274b660b}.panel-head{padding:14px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}.screen{aspect-ratio:4/3;background:#101923;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.screen img{width:100%;height:100%;object-fit:contain;position:absolute;inset:0}.empty{padding:25px;text-align:center;color:#b9c6d3}.empty strong{display:block;color:#fff;font-size:18px;margin-bottom:8px}.screen .badge{position:absolute;top:12px;left:12px;background:#101923dd;border:1px solid #7990a3;padding:3px 9px;border-radius:5px;font-size:12px;z-index:2}.foot{padding:12px 18px;color:var(--muted);font-size:13px;min-height:45px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.metric{padding:14px 17px;background:var(--panel);border:1px solid var(--border);border-radius:10px}.metric small{display:block;color:var(--muted)}.metric strong{font-size:21px;font-weight:600}.notice{background:var(--accent-soft);border-left:3px solid var(--accent);padding:12px 16px;border-radius:5px;margin:14px 0;color:#245768}.notice.error{background:#fff0f0;color:#943535;border-color:var(--danger)}.hidden,[hidden]{display:none!important}.details{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;margin-top:18px}.content{padding:16px 18px}.content p{margin:0 0 10px}ol{padding-left:22px;margin:8px 0}.record{font-family:ui-monospace,monospace;font-size:12px;word-break:break-all;color:var(--muted)}.eye-image{display:block;max-width:100%;max-height:350px;margin:12px auto}.check{display:flex;align-items:flex-start;gap:10px;padding:10px 0}.check input{margin-top:6px}footer{color:var(--muted);font-size:12px;padding:20px 0 4px}#toast{min-height:25px;color:var(--muted)}#reportFrame{width:100%;height:660px;border:0;background:white}.reader{margin-top:18px}.reader-body{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;padding:16px}.reader-viewport{height:620px;overflow:auto;background:#101923;border-radius:9px;display:flex;align-items:flex-start;justify-content:center;padding:18px}.reader-viewport img{max-width:none;width:640px;transform-origin:top center;transition:transform .12s ease}.reader-actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 16px}.finding{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:10px 0;border-bottom:1px solid var(--border)}.finding:last-child{border-bottom:0}.finding small{grid-column:1/-1;color:var(--muted)}.score-positive{color:#b34828;font-weight:650}.score-negative{color:#2f8a6c;font-weight:650}.muted{color:var(--muted)}@media(max-width:850px){.grid,.details,.reader-body{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}header{align-items:flex-start}h1{font-size:20px}.pill{font-size:11px}.spacer{display:none}.reader-viewport{height:430px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div><h1>眼部影像 · 手势阅片</h1><div class="sub">PYNQ-Z2 本地处理 · 两台摄像头互斥 · HID 默认关闭</div></div><div class="pill"><i id="dot" class="dot"></i><span id="connection">连接板卡中</span></div></header>
+<main>
+<div class="flow"><span id="flowCapture">① B 眼部拍照</span><span id="flowAnalyze">② 关闭相机 · 处理照片</span><span id="flowReady">③ 报告就绪</span><span id="flowReview">④ A 手势阅片</span></div>
+<div class="toolbar">
+<button id="eye" class="primary" data-action="eye">打开 B · 眼部预览</button>
+<button id="start" data-action="start">恢复当前阶段</button>
+<button id="stop" class="danger" data-action="stop">停止摄像头</button>
+<span class="spacer"></span><button id="gesture" data-action="gesture">进入 A · 手势阅片</button><button id="infer_off" data-action="infer_off">停止手势识别</button>
+</div>
+<div id="error" class="notice error" hidden role="alert"></div>
+<div id="toast" role="status"></div>
+<div class="grid">
+<section class="panel"><div class="panel-head"><h2 id="cameraTitle">B · 眼部摄像头</h2><span id="phase" class="sub">等待预览</span></div>
+<div class="screen"><div class="empty" id="liveEmpty"><strong>正在连接相机</strong><span>首次打开需要几秒钟。不会同时打开 A 和 B。</span></div><img id="live" hidden alt="当前摄像头实时预览"><span class="badge" id="liveBadge" hidden>实时画面</span></div><div class="foot" id="liveInfo">网页保持可访问；相机按需开启，关闭或隐藏所有页面约 30 秒后释放。</div></section>
+<section class="panel"><div class="panel-head"><h2>手势状态</h2><span class="sub" id="recognitionLabel">报告就绪后自动开启</span></div>
+<div class="screen"><div class="empty" id="resultEmpty"><strong>识别默认关闭</strong><span>点击“开启手势识别”。显示最近一次用于识别的画面和控制状态。</span></div><img id="result" hidden alt="最近一次手势识别画面"><span class="badge" id="resultBadge" hidden>历史采样 · 非当前实时画面</span></div><div class="foot" id="resultInfo">手势识别与视频刷新独立；耗时以实测为准。</div></section>
+</div>
+<div class="metrics"><div class="metric"><small>预览输出</small><strong id="fps">—</strong></div><div class="metric"><small>识别耗时</small><strong id="latency">—</strong></div><div class="metric"><small>识别模式</small><strong id="mode">未激活</strong></div><div class="metric"><small>最近动作</small><strong id="event">等待</strong></div></div>
+<div class="notice" id="scope">先用 B 拍摄并完成眼部分析；报告校验通过后自动切换到 A。手势默认只控制网页内阅片，不发送系统 HID。</div>
+<div class="details">
+<section class="panel"><div class="panel-head"><h2>本次眼部研究流程</h2><span class="sub" id="workflow">尚未拍照</span></div><div class="content">
+<p>打开 B 对准眼球后拍照。B 会先释放；确认照片后运行 CPU 研究分析，报告完整性校验通过后自动打开 A。</p>
+<div class="toolbar"><button id="capture" data-action="capture">拍照并关闭 B</button><button id="review" data-action="review">重新进入 A 阅片</button><button id="end_session" data-action="end_session">结束本次检查</button></div>
+<img id="photo" class="eye-image" hidden alt="本次保存的眼部研究照片">
+<label class="check"><input type="checkbox" id="confirmEye"><span>我已检查照片，确认它是可用于本次研究测试的眼部图像，而非普通桌面场景。</span></label>
+<button id="analyze" class="primary">确认照片并开始处理</button>
+<p class="sub" style="margin-top:12px">仅研究联调，不提供临床诊断。拍照、分析和报告均保存在板卡本地，不上传互联网。数据不会自动删除；存储不足时阻止新拍照。</p><div id="sessionId" class="record"></div>
+</div></section>
+<section class="panel"><div class="panel-head"><h2>操作提示与安全状态</h2></div><div class="content"><ol>
+<li>捏合保持：激活/退出网页阅片控制；松开后只伸食指：上下滚动。</li><li>张掌保持：进入缩放；食指保持：返回滚动。</li><li>缩放由拇指与食指距离变化计算，不是手掌上下移动。</li><li>当前版本不发送系统鼠标、键盘或 HID；HID 需单独确认后启用。</li><li>设备异常会停止当前操作，不自动来回重开相机；检查连接后点击“恢复当前阶段”。</li></ol>
+<p id="storage" class="sub"></p><p class="sub">只允许已配置的直连电脑访问。不要将此页面端口映射到公网。板卡时钟可能不准，画面新鲜度使用单调计时，不依赖日期。</p></div></section>
+</div>
+<section id="readerSection" class="panel reader" hidden><div class="panel-head"><h2>本次眼部阅片</h2><span class="sub" id="readerStatus">手势控制网页内画面</span></div><div class="reader-body"><div><div id="readerViewport" class="reader-viewport"><img id="readerImage" alt="眼部分析结果图"></div><div class="reader-actions"><button id="readerPhoto">原图</button><button id="readerOverlay" class="primary">分析叠加图</button><button id="readerReset">复位</button><span class="muted" id="readerZoom">100%</span></div></div><div><h3>分析结果</h3><div id="findings"><span class="muted">报告就绪后加载。</span></div><p class="sub" id="modelMeta"></p><p class="sub">研究结果，分数未经概率校准，不能用于确诊或排除疾病。</p></div></div></section>
+<details id="reportSection" class="panel" style="margin-top:18px" hidden><summary>查看原始研究报告 HTML</summary><iframe id="reportFrame" title="本次眼部研究报告" sandbox="allow-same-origin"></iframe></details>
+<footer>网页后台常驻不等于摄像头持续采集。重启服务不会自动恢复手势激活状态。版本：2026.09.27 · 长时间耐久测试仍需持续积累。</footer>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),token=document.querySelector('meta[name="csrf-token"]').content;
+const names={IDLE:'待机',OPENING:'打开中',PREVIEW:'预览中',CAPTURING:'拍照中',PROCESSING:'照片处理中',EYE_CAPTURE:'眼部拍照中',EYE_PROCESSING_CAMERAS_CLOSED:'照片处理中',ERROR:'已停止 · 需检查',AWAITING_IMAGE_REVIEW:'待确认照片',RESULT_READY:'报告就绪',GESTURE_TEST_FINISHED:'报告就绪'};
+const modes={IDLE:'未激活',SCROLL:'滚动',ZOOM:'缩放'};
+const events={INDEX_UP_HOLD:'食指伸直 / 恢复向上控制',INDEX_DOWN_HOLD:'食指弯曲 / 恢复向下控制',INDEX_HOLD:'保持食指姿态',INDEX_NEUTRAL:'食指中间姿态 / 暂停',NEED_FOUR_FOLDED:'收拢另外四指',NEED_INDEX_TO_START:'先伸直食指或捏合解锁',PINCH_WAIT_INDEX:'已解锁 / 用食指控制',WAIT:'保持',PINCH_HOLD:'捏合保持',PINCH_RELEASED:'已松开',ACTIVATE:'已激活',DEACTIVATE:'已退出',MODE_HOLD:'姿态确认中',ENTER_ZOOM:'进入缩放',ENTER_SCROLL:'进入滚动',SCROLL_BASELINE:'记录滚动起点',ZOOM_BASELINE:'记录缩放起点',CONTENT_UP:'内容向上',CONTENT_DOWN:'内容向下',ZOOM_IN:'放大',ZOOM_OUT:'缩小',NEED_INDEX_ONLY:'请只伸食指',WAITING_HAND:'已解锁 / 等待手部回到画面',INPUT_STALE:'保持解锁 / 继续识别',NO_HAND_RELEASE:'无有效手部 / 继续识别',TIME_GAP_RELEASE:'时间戳异常 / 已重置'};
+let state=null,connected=false,lastResult=-1,lastPhoto='',reportSession='',issuing=false,lastLease=0;
+let readerZoom=1,readerSource='overlay',lastGestureSeq=-1,reportData=null,readerImageUrl='',reportJsonSession='';
+async function request(path,data){const c=new AbortController(),t=setTimeout(()=>c.abort(),5000);try{const r=await fetch(path,{method:data===undefined?'GET':'POST',headers:data===undefined?{}:{'Content-Type':'application/json','X-CSRF-Token':token},body:data===undefined?undefined:JSON.stringify(data),cache:'no-store',signal:c.signal});const value=await r.json();if(r.status===403&&path==='/api/lease'){setTimeout(()=>location.reload(),1500);}if(!r.ok)throw Error(value.error||'请求失败');return value;}finally{clearTimeout(t);}}
+function hideImage(id,empty){const el=$(id);el.hidden=true;$(empty).hidden=false;}
+async function loadImage(path,id){const c=new AbortController(),t=setTimeout(()=>c.abort(),3000);try{const r=await fetch(path,{cache:'no-store',signal:c.signal});if(!r.ok)throw Error('暂无画面');const blob=await r.blob();if(document.hidden)return false;const old=$(id).src;$(id).src=URL.createObjectURL(blob);if(id==='live')$(id).style.transform='rotate('+(Number(r.headers.get('X-Preview-Rotation'))||0)+'deg)';await $(id).decode();$(id).hidden=false;if(old.startsWith('blob:'))URL.revokeObjectURL(old);return true;}finally{clearTimeout(t);}}
+function setFlow(s){['flowCapture','flowAnalyze','flowReady','flowReview'].forEach(id=>$(id).classList.remove('active'));const active=s.workflow_state==='AWAITING_IMAGE_REVIEW'?'flowCapture':s.workflow_state==='EYE_PROCESSING_CAMERAS_CLOSED'?'flowAnalyze':s.report_ready?'flowReview':'flowCapture';$(active).classList.add('active');}
+function resetReader(){readerZoom=1;$('readerViewport').scrollTop=0;$('readerImage').style.transform='scale(1)';$('readerZoom').textContent='100%';}
+async function loadReaderImage(path){const r=await fetch(path+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('暂无结果图');const blob=await r.blob();const old=readerImageUrl;readerImageUrl=URL.createObjectURL(blob);$('readerImage').src=readerImageUrl;if(old)URL.revokeObjectURL(old);$('readerImage').style.transform=`scale(${readerZoom})`;}
+function labelFor(key,value){if(value&&typeof value==='object'&&value.label)return value.label;const map={subconjunctival_hemorrhage:'结膜下出血',pinguecula:'睑裂斑',pterygium:'翼状胬肉'};return map[key]||key;}
+function renderFindings(data){reportData=data;const c=data.classification||data;const scores=c.scores||data.scores||{};const thresholds=c.thresholds||data.thresholds||{};const positives=new Set(c.positive_labels_zh||data.positive_labels_zh||[]);const rows=Object.entries(scores).map(([key,v])=>{const score=typeof v==='number'?v:Number(v?.score??v?.value);const threshold=Number(v?.threshold??thresholds[key]??.5);const positive=v?.positive===true||positives.has(labelFor(key,v))||Number.isFinite(score)&&score>=threshold;return `<div class="finding"><span>${labelFor(key,v)}</span><strong class="${positive?'score-positive':'score-negative'}">${Number.isFinite(score)?(score*100).toFixed(1)+'%':'—'}</strong><small>阈值 ${(threshold*100).toFixed(1)}% · ${positive?'超过阈值':'未超过阈值'}</small></div>`;});$('findings').innerHTML=rows.length?rows.join(''):'<span class="muted">报告没有可展示的分类分数。</span>';const model=data.model||{};$('modelMeta').textContent=[model.name,model.version,model.backend||c.backend].filter(Boolean).join(' · ')||'研究模型信息未提供';}
+async function loadReport(){if(!state?.report_ready||reportJsonSession===state.session_id)return;try{const r=await fetch('/report.json?session='+encodeURIComponent(state.session_id),{cache:'no-store'});if(!r.ok)throw Error('报告 JSON 暂不可用');renderFindings(await r.json());await loadReaderImage('/report.png');readerSource='overlay';reportJsonSession=state.session_id;$('readerSection').hidden=false;}catch(e){$('findings').innerHTML='<span class="muted">报告正在加载，请稍候。</span>';}}
+function applyGesture(s){const r=s.result||{};if(!s.report_ready||!s.inference_active||s.result_stale||s.result_seq===lastGestureSeq)return;lastGestureSeq=s.result_seq;const link=s.hid_serial_enabled?'USART-HID':'网页';$('readerStatus').textContent=`${modes[r.mode]||'未激活'} · ${events[r.event]||r.event||'等待'} · ${link}控制`;if(s.hid_serial_enabled)return;if(r.event==='CONTENT_UP'||r.event==='CONTENT_DOWN')$('readerViewport').scrollBy({top:-Number(r.scroll_px||0)*3,behavior:'smooth'});if(r.event==='ZOOM_IN'||r.event==='ZOOM_OUT'){readerZoom=Math.max(.5,Math.min(3,readerZoom*Number(r.zoom_factor||1)));$('readerImage').style.transform=`scale(${readerZoom})`;$('readerZoom').textContent=Math.round(readerZoom*100)+'%';}}
+function render(s){
+ state=s; setFlow(s); $('connection').textContent='板卡已连接';$('dot').className='dot ok';$('phase').textContent=names[s.phase]||s.phase;
+ $('cameraTitle').textContent=s.role==='gesture'?'A · 手势摄像头':'B · 眼部摄像头';
+ $('error').hidden=!s.error;$('error').textContent=s.error;
+ $('fps').textContent=s.frame_fresh?s.preview_fps.toFixed(1)+' 帧/秒':'—';
+ const r=s.result||{};$('latency').textContent=r.pipeline_ms?(r.pipeline_ms/1000).toFixed(2)+' 秒':'—';
+ $('mode').textContent=modes[r.mode]||'未激活';
+ $('event').textContent=s.result_stale?(s.inference_active?'等待新结果':'等待'):(events[r.event]||r.event||'等待');
+ $('recognitionLabel').textContent=s.inference_active?'CPU · TRACK/DETECT · 网页控制':'报告就绪后自动开启';
+ $('resultInfo').textContent=s.result_age_s===null?'报告就绪后自动开启识别。':`这是 ${s.result_age_s.toFixed(1)} 秒前采集的照片 · ${r.hand_source||'DETECT'}。${s.result_stale?'结果已过期，不作为当前动作。':''} ${r.issue||''}`;
+ $('scope').textContent=s.session_id?`本次检查 ${s.session_id.slice(0,8)} · ${names[s.workflow_state]||s.workflow_state}。手势控制：${s.hid_serial_enabled?'USART-HID 串口桥接':'网页内阅片'}；仅允许滚动、缩放、复位。`:'先打开 B 拍摄眼球，报告校验通过后自动切到 A。';
+ $('workflow').textContent=names[s.workflow_state]||s.workflow_state||'尚未拍照';$('sessionId').textContent=s.session_id?'检查 ID：'+s.session_id:'';
+ $('storage').textContent=`服务已运行 ${Math.floor(s.uptime_s/60)} 分钟 · 剩余存储 ${s.free_mb} MB · USART-HID：${s.hid_serial_enabled?'已启用':'关闭'}`;
+ document.querySelectorAll('button').forEach(b=>b.disabled=s.busy||issuing);
+ $('stop').disabled=s.busy||(!s.camera_active&&!s.inference_active);$('infer_off').disabled=s.busy||!s.inference_active;$('capture').disabled=s.busy||s.role!=='eye'||!s.frame_fresh;
+ $('review').disabled=s.busy||!s.report_ready;$('end_session').disabled=s.busy||!s.session_id;
+ $('analyze').disabled=s.busy||s.workflow_state!=='AWAITING_IMAGE_REVIEW'||!$('confirmEye').checked;
+ $('gesture').disabled=s.busy||!s.report_ready;
+ if(!s.frame_fresh){hideImage('live','liveEmpty');$('liveBadge').hidden=true;$('liveEmpty').innerHTML='<strong></strong><span></span>';$('liveEmpty').querySelector('strong').textContent=names[s.phase]||'等待画面';$('liveEmpty').querySelector('span').textContent=s.error||'可点击“恢复 / 重试预览”；处理照片时两台相机保持关闭。';}
+ if(!s.inference_active){hideImage('result','resultEmpty');$('resultBadge').hidden=true;lastResult=-1;}
+ if(s.session_id&&s.workflow_state!=='EYE_CAPTURE'&&lastPhoto!==s.session_id){lastPhoto=s.session_id;loadImage('/photo.png','photo').catch(()=>{$('photo').hidden=true;lastPhoto='';});$('confirmEye').checked=false;}
+ if(!s.session_id){$('photo').hidden=true;lastPhoto='';$('confirmEye').checked=false;}
+ $('reportSection').hidden=!s.report_ready;
+ $('readerSection').hidden=!s.report_ready;$('readerPhoto').disabled=!s.report_ready;$('readerOverlay').disabled=!s.report_ready;
+ if(s.report_ready&&reportSession!==s.session_id){$('reportFrame').src='/report.html?session='+encodeURIComponent(s.session_id);reportSession=s.session_id;}
+ if(!s.report_ready){$('reportFrame').removeAttribute('src');reportSession='';reportJsonSession='';reportData=null;}
+ if(s.report_ready)loadReport();applyGesture(s);
+}
+async function command(action,extra={}){if(issuing)return;issuing=true;$('toast').textContent='正在提交操作……';try{await request('/api/action',{action,...extra});$('toast').textContent='操作已提交，请等待状态更新。';}catch(e){$('toast').textContent=e.message;}finally{issuing=false;}}
+document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='end_session'&&!confirm('结束当前检查并返回 B 眼部拍摄？已保存的照片与报告不会删除。'))return;command(a);});
+$('analyze').onclick=()=>command('analyze',{confirm_eye:$('confirmEye').checked});$('confirmEye').onchange=()=>state&&render(state);
+$('readerReset').onclick=resetReader;$('readerPhoto').onclick=async()=>{try{await loadReaderImage('/photo.png');readerSource='photo';}catch(e){$('toast').textContent=e.message;}};$('readerOverlay').onclick=async()=>{try{await loadReaderImage('/report.png');readerSource='overlay';}catch(e){$('toast').textContent=e.message;}};
+async function poll(){try{if(document.hidden){connected=false;return;}const now=Date.now();let s;if(now-lastLease>2000){s=await request('/api/lease',{});lastLease=now;}else{s=await request('/api/state');}connected=true;render(s);}catch(e){connected=false;$('connection').textContent='连接中断 · 正在重连';$('dot').className='dot';$('error').hidden=false;$('error').textContent=e.message+'；服务重启后如校验失败，请刷新网页。';hideImage('live','liveEmpty');$('liveBadge').hidden=true;$('mode').textContent='未激活';document.querySelectorAll('button').forEach(b=>b.disabled=true);}finally{setTimeout(poll,750);}}
+async function video(){try{if(connected&&!document.hidden&&state?.frame_fresh){if(await loadImage('/frame.jpg','live')){$('liveEmpty').hidden=true;$('liveBadge').hidden=false;}}}catch(e){hideImage('live','liveEmpty');$('liveBadge').hidden=true;}finally{if(connected&&!document.hidden&&state?.frame_fresh&&state.role==='gesture')requestAnimationFrame(video);else setTimeout(video,180);}}
+async function result(){try{if(connected&&!document.hidden&&state?.inference_active&&state.result_seq!==lastResult&&state.result_age_s!==null){if(await loadImage('/result.jpg','result')){lastResult=state.result_seq;$('resultEmpty').hidden=true;$('resultBadge').hidden=false;}}}catch(e){}finally{setTimeout(result,700);}}
+document.addEventListener('visibilitychange',()=>{if(document.hidden){connected=false;hideImage('live','liveEmpty');}else{lastLease=0;}});
+poll();video();result();
+</script>
+</body></html>

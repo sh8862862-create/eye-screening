@@ -1,0 +1,63 @@
+1. For detailed information about the SDK's components, features, and development, please refer to the SDK documentation for the corresponding chip series in the Software Development section of the Docume
+   Taking CI13060 as an example, the reference link is as follows: https://document.chipintelli.com/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/SDK/CI130X%E8%8A%AF%E7%89%87SDK/CI-SDK-Offline/
+
+2. If you need to modify and adjust the relevant algorithm parameters in the SDK, please refer to the SDK documentation for the corresponding chip series in the Software Development section of the Documentation Center.
+   Taking AEC as an example, the reference link is as follows:：https://document.chipintelli.com/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/SDK/CI130X%E8%8A%AF%E7%89%87SDK/components/%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/
+
+3. If the firmware size exceeds the flash capacity of the selected chip, please try again after switching to a smaller acoustic model, reducing the number of command words or voice prompts, or using a chip with larger flash capacity.
+
+4. If algorithms are enabled, the system provides relatively less memory space for language model. To ensure normal recognition operation, please reduce the number of command words.
+
+
+The firmware communication protocol is as follows:
+<welcome>:AA 55 01 00 FB:AA 55 01 00 FB
+<inactivate>:AA 55 02 00 FB:AA 55 02 00 FB
+小幻小幻:AA 55 03 00 FB:AA 55 03 00 FB
+增大音量:AA 55 04 00 FB:AA 55 04 00 FB
+减小音量:AA 55 05 00 FB:AA 55 05 00 FB
+最大音量:AA 55 06 00 FB:AA 55 06 00 FB
+中等音量:AA 55 07 00 FB:AA 55 07 00 FB
+最小音量:AA 55 08 00 FB:AA 55 08 00 FB
+开启播报:AA 55 09 00 FB:AA 55 09 00 FB
+关闭播报:AA 55 0A 00 FB:AA 55 0A 00 FB
+有:AA 55 00 01 FB:AA 55 00 01 FB
+没有:AA 55 00 02 FB:AA 55 00 02 FB
+不确定:AA 55 00 03 FB:AA 55 00 03 FB
+问题一:AA 55 FF 10 FB:AA 55 FF 10 FB
+问题二:AA 55 FF 11 FB:AA 55 FF 11 FB
+问题三:AA 55 FF 12 FB:AA 55 FF 12 FB
+问题四:AA 55 FF 13 FB:AA 55 FF 13 FB
+问题五:AA 55 FF 14 FB:AA 55 FF 14 FB
+问题六:AA 55 FF 15 FB:AA 55 FF 15 FB
+问题七:AA 55 FF 16 FB:AA 55 FF 16 FB
+问题八:AA 55 FF 17 FB:AA 55 FF 17 FB
+问题九:AA 55 FF 18 FB:AA 55 FF 18 FB
+问题十:AA 55 FF 19 FB:AA 55 FF 19 FB
+问题十一:AA 55 FF 1A FB:AA 55 FF 1A FB
+问题十二:AA 55 FF 1B FB:AA 55 FF 1B FB
+问题十三:AA 55 FF 1C FB:AA 55 FF 1C FB
+问题十四:AA 55 FF 1D FB:AA 55 FF 1D FB
+问题十五:AA 55 FF 1E FB:AA 55 FF 1E FB
+回答提示:AA 55 FF 1F FB:AA 55 FF 1F FB
+请再说一遍:AA 55 FF 20 FB:AA 55 FF 20 FB
+信息已记录:AA 55 FF 21 FB:AA 55 FF 21 FB
+立即就医:AA 55 FF 22 FB:AA 55 FF 22 FB
+唤醒提示:AA 55 FF 23 FB:AA 55 FF 23 FB
+流程一:AA 55 FF 30 FB:AA 55 FF 30 FB
+流程二:AA 55 FF 31 FB:AA 55 FF 31 FB
+流程三:AA 55 FF 32 FB:AA 55 FF 32 FB
+流程四:AA 55 FF 33 FB:AA 55 FF 33 FB
+流程五:AA 55 FF 34 FB:AA 55 FF 34 FB
+流程六:AA 55 FF 35 FB:AA 55 FF 35 FB
+流程七:AA 55 FF 36 FB:AA 55 FF 36 FB
+流程八:AA 55 FF 37 FB:AA 55 FF 37 FB
+流程九:AA 55 FF 38 FB:AA 55 FF 38 FB
+流程十:AA 55 FF 39 FB:AA 55 FF 39 FB
+流程十一:AA 55 FF 3A FB:AA 55 FF 3A FB
+流程十二:AA 55 FF 3B FB:AA 55 FF 3B FB
+流程十三:AA 55 FF 3C FB:AA 55 FF 3C FB
+流程十四:AA 55 FF 3D FB:AA 55 FF 3D FB
+流程十五:AA 55 FF 3E FB:AA 55 FF 3E FB
+流程十六:AA 55 FF 3F FB:AA 55 FF 3F FB
+流程十七:AA 55 FF 40 FB:AA 55 FF 40 FB
+流程十八:AA 55 FF 41 FB:AA 55 FF 41 FB

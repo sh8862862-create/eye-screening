@@ -1,0 +1,11 @@
+{
+  "source_sha256": "beedd73f361ed6083185916bc8dc148172a6022118fd277b125edf24ea326f31",
+  "precision": "float32",
+  "quantized": false,
+  "ncnn_version": "20261020",
+  "layers": 110,
+  "blobs": 123,
+  "weight_bytes": 4047052,
+  "source_url": "https://github.com/Tencent/ncnn/tree/20261020",
+  "archive_sha256": "ca7643d59d50b8ff455edfe4b08c64da0355028ef57d87ac8fa5264d1d18e4ab"
+}

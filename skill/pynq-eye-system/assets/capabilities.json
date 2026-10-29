@@ -1,0 +1,169 @@
+{
+  "version": "2026-10-29",
+  "capabilities": [
+    {
+      "id": "system",
+      "name": "系统状态与版本审计",
+      "reference": "references/system_contract.md",
+      "resources": [
+        "src/ps/shared/shared_fpga.py",
+        "report/organization/current_sources.json"
+      ],
+      "requirements": "Python；板端状态需网络与已有服务"
+    },
+    {
+      "id": "camera",
+      "name": "双摄像机与网页工作流",
+      "reference": "references/camera_workflow.md",
+      "resources": [
+        "src/ps/camera_web/service.py",
+        "src/ps/camera_web/workers.py",
+        "src/ps/camera_web/device_status.py"
+      ],
+      "requirements": "USB 摄像机、确认角色、网页依赖"
+    },
+    {
+      "id": "buttons",
+      "name": "四按键与停止确认流程",
+      "reference": "references/camera_workflow.md",
+      "resources": [
+        "src/ps/shared/button_service.py",
+        "board/config/pynq-buttons.service"
+      ],
+      "requirements": "GPIO 与网页接口"
+    },
+    {
+      "id": "voice",
+      "name": "语音固件问卷和答案采集",
+      "reference": "references/voice_buttons.md",
+      "resources": [
+        "src/ps/shared/wonderecho.py",
+        "src/ps/shared/voice_check.py",
+        "board/firmware/wonderecho/ci1302_v00729_uart1_115200_2m.bin",
+        "board/firmware/wonderecho/protocol.txt",
+        "data/voice/questionnaire_protocol.xlsx"
+      ],
+      "requirements": "WonderEcho 5V 与专用 I2C"
+    },
+    {
+      "id": "eye_inference",
+      "name": "七类眼部推理与定位",
+      "reference": "references/eye_models.md",
+      "resources": [
+        "src/ps/eye/infer.py",
+        "data/models/eye/mobilenet_v3_small.onnx",
+        "data/models/eye/mobilenet_v3_small.json",
+        "data/models/eye/mobile_unet.onnx"
+      ],
+      "requirements": "OpenCV、NumPy、实际图像"
+    },
+    {
+      "id": "training",
+      "name": "数据治理重训练导出和阈值",
+      "reference": "references/eye_models.md",
+      "resources": [],
+      "requirements": "PyTorch、外部数据集、独立验证划分；先恢复原布局",
+      "archive_resources": [
+        "src/archive/workspace/model_retrain/train_normal7.py",
+        "src/archive/workspace/model_retrain/export_normal7.py",
+        "src/archive/workspace/model_retrain/refresh_current_threshold.py"
+      ]
+    },
+    {
+      "id": "report",
+      "name": "HTML 报告与结果追溯",
+      "reference": "references/eye_models.md",
+      "resources": [
+        "src/ps/eye/report.py",
+        "src/ps/camera_web/review.html"
+      ],
+      "requirements": "真实推理 JSON 与对应图像"
+    },
+    {
+      "id": "oled",
+      "name": "OLED 状态显示与有限恢复",
+      "reference": "references/display_peripherals.md",
+      "resources": [
+        "src/ps/oled/oled_iic.py",
+        "src/ps/camera_web/oled_result.py"
+      ],
+      "requirements": "Pillow、字体；实屏需板端 I2C"
+    },
+    {
+      "id": "gesture",
+      "name": "捏合食指滚动与可靠跟踪",
+      "reference": "references/gesture_hid.md",
+      "resources": [
+        "src/ps/gesture/gesture_control.py",
+        "src/ps/gesture/hand_tracker.py",
+        "sim/run_gesture_tests.py"
+      ],
+      "requirements": "NumPy；实物需摄像机和推理模型"
+    },
+    {
+      "id": "hid",
+      "name": "CH9329 串口与 USB 控制",
+      "reference": "references/gesture_hid.md",
+      "resources": [
+        "src/ps/shared/hid_bridge.py",
+        "src/ps/shared/ch9329.py",
+        "src/ps/shared/uart_lite.py",
+        "board/config/ch9329-pmoda.conf"
+      ],
+      "requirements": "PMODA UART 9600 8N1、USB 连接和报告门控"
+    },
+    {
+      "id": "pl",
+      "name": "掌检测 PL 构建和黄金参考",
+      "reference": "references/hardware_performance.md",
+      "resources": [
+        "src/hls/palm_depthwise_v6.cpp",
+        "sim/hls/test_depthwise.cpp",
+        "build/scripts/build_palm_hls.tcl",
+        "build/scripts/build_palm_overlay.tcl"
+      ],
+      "requirements": "Vivado/Vitis HLS 与 PYNQ 板卡"
+    },
+    {
+      "id": "cpu_performance",
+      "name": "ncnn 裁剪与延迟验证",
+      "reference": "references/hardware_performance.md",
+      "resources": [
+        "src/native/ncnn_bridge.cpp",
+        "build/scripts/build_ncnn.sh",
+        "data/third_party/ncnn-20261020.zip"
+      ],
+      "requirements": "ARMv7 工具链、OpenMP、模型与固定输入",
+      "archive_resources": [
+        "sim/archive/workspace/tools/gesture_latency_20261028/verify_pipeline.py"
+      ]
+    },
+    {
+      "id": "deployment",
+      "name": "一致发布备份与回退",
+      "reference": "references/deployment_recovery.md",
+      "resources": [
+        "skill/pynq-eye-system/assets/deployment_map.json",
+        "src/ps/palm/deploy_palm.py"
+      ],
+      "requirements": "已配置板卡、运行状态及备份；不使用过期整目录覆盖",
+      "archive_resources": [
+        "board/archive/workspace/shared_fpga/deploy_shared.sh",
+        "board/archive/workspace/tools/palm_pl_20261028/deploy_palm.py",
+        "board/archive/workspace/tools/gesture_latency_20261028/deploy_latency.py",
+        "board/archive/workspace/tools/gesture_reliability_20261028/deploy_board.py"
+      ]
+    },
+    {
+      "id": "acceptance",
+      "name": "完整闭环验收与工程迁移",
+      "reference": "references/acceptance.md",
+      "resources": [
+        "sim/verify_repository.py",
+        "sim/verify_package.py",
+        "report/current_release.md"
+      ],
+      "requirements": "自动测试依赖与现场硬件分别确认"
+    }
+  ]
+}

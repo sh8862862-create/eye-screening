@@ -1,0 +1,62 @@
+{
+  "custom_layer.py": {
+    "sha256": "42d6bee37af7058cdd0d46d0f650069f2fc0115f07997fb4a1a90bbc13b10aba",
+    "bytes": 1307
+  },
+  "deploy_palm.py": {
+    "sha256": "2915d1cc6c89a7f75acee95e61a896b86e5ee319623aeea625b7fdd6f4d82276",
+    "bytes": 5051
+  },
+  "index.html": {
+    "sha256": "f229860856101810da72762ed7db354164bac0835b2587d46fe68783a315ac0d",
+    "bytes": 23529
+  },
+  "libpalm_layer.so": {
+    "sha256": "9364e5e20951e96cd92f693d265ff6b81bc34adfddd524304ad5f3ed98be87ff",
+    "bytes": 32240
+  },
+  "native_layer.py": {
+    "sha256": "fdd0ac19eedf83984d228cbe2ca8d67ca0fdbf2d90d61333a58f5c9761776127",
+    "bytes": 1345
+  },
+  "palm_custom.onnx": {
+    "sha256": "a3817d02633b8c55266b0cc8a98396ee2a6f501e23d3e4f858d9ec7a328f6456",
+    "bytes": 3905404
+  },
+  "palm_rpc.py": {
+    "sha256": "a3f5dfd78eb534f947db9877200315c66de40883bb1fd589084eddb8b432b9ef",
+    "bytes": 2520
+  },
+  "palm_service.py": {
+    "sha256": "5bc3100f56977815c4790bb3d9f99134a7cd69554765bf522718b7a0acb8dad4",
+    "bytes": 3620
+  },
+  "pl_backend.py": {
+    "sha256": "3f0404926b71de089828e8117e4491b67d83340f7a7cdc991c1903ca2a7ac96c",
+    "bytes": 7407
+  },
+  "pynq-palm.service": {
+    "sha256": "ee7eeb98eb9feec946554121c1e965911705647d6cf41429c337681f8d8cafc6",
+    "bytes": 980
+  },
+  "pynq_shared.bit": {
+    "sha256": "ff8f8b7cd0a4bf9ff28bfe937436c6357692bf5899aa3baa12433d458d3906f5",
+    "bytes": 4045676
+  },
+  "pynq_shared.hwh": {
+    "sha256": "f65f28963ca41b68f3de587f8a4ee66f22f414fe372de39e92f4f6646f3a4229",
+    "bytes": 410902
+  },
+  "shared_fpga.py": {
+    "sha256": "305f73ac37e8daf175d11602a9c7860d16697015d78aea29f5457444a97e516f",
+    "bytes": 13115
+  },
+  "weights.npz": {
+    "sha256": "8570cf68e89c50d2570cd5d5f96af9871efec4e06d02d52ec7bb7aac4cbb7b2e",
+    "bytes": 370394
+  },
+  "workers.py": {
+    "sha256": "37fa5043fc6cf96d331d4260fa9b700a8b7d64268857d1a3a1e36073a2ce9922",
+    "bytes": 12413
+  }
+}

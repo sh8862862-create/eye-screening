@@ -1,0 +1,46 @@
+{
+  "deploy_latency.py": {
+    "sha256": "533611cb4ebafe38a7295c8faf5aa19241dabb70489442d7401114495362c846",
+    "bytes": 3325
+  },
+  "fast_handpose.py": {
+    "sha256": "9a45f101855ecf9276407e54132efa0bada97d3c68a5b52f131c35b23f229f48",
+    "bytes": 2475
+  },
+  "gesture_control.py": {
+    "sha256": "07a82d79f160b914d4b621b6532cb5cf380719e10391e2efffef8029f1c905e1",
+    "bytes": 12693
+  },
+  "handpose.ncnn.bin": {
+    "sha256": "ec4411a9b6fd576d7281b0356943a5e8a993b26f4e1ef53a08e949862792bf08",
+    "bytes": 4047052
+  },
+  "handpose.ncnn.param": {
+    "sha256": "7206fe276fe6eddcf58078253fc94dd57768fba5e4664a689275648485e93238",
+    "bytes": 7738
+  },
+  "libgesture_ncnn.so": {
+    "sha256": "f534f3df59074a02d484096b275af1aa650e112ec13034ac5d8ad66f33adf8d8",
+    "bytes": 655780
+  },
+  "ncnn_conversion.json": {
+    "sha256": "22983d5bb878892259b4af3d21e5b850b819e699f984c712172dc733a514efd9",
+    "bytes": 390
+  },
+  "NCNN_LICENSE.txt": {
+    "sha256": "7c974bac98848df46be1af5bdaa3c3c9c01f6082a90f55caeb7f60c6208aa255",
+    "bytes": 6427
+  },
+  "ncnn_runtime.py": {
+    "sha256": "8240f148e9ab43f51b4e991ce32f3e98d866468004e323e1c7d7c57de9c5adf4",
+    "bytes": 1849
+  },
+  "pose_runtime.py": {
+    "sha256": "bbcb75c40d512ec30d7ca0159911b774c376f90f961bd5e93857d59270d57181",
+    "bytes": 2183
+  },
+  "workers.py": {
+    "sha256": "df8544e4425a37eb87d65a456f4679dc8e1296446aa6e365aa5ffeeff2e18841",
+    "bytes": 12992
+  }
+}

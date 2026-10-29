@@ -1,0 +1,46 @@
+# Local credentials and settings
+.env
+.env.*
+!.env.example
+config/local.json
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+# Python and build products
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.Xil/
+*.jou
+*.log
+build/work/
+work/
+outputs/
+dist/
+*.cache/
+*.runs/
+*.sim/
+*.gen/
+*.hw/
+*.ip_user_files/
+# Historical/private evidence remains outside the source repository
+**/archive/
+data/private/
+data/training/
+board/snapshots/
+*.zip
+*.tgz
+*.onnx
+*.bit
+*.hwh
+*.so
+*.bin
+*.npz
+*.npy
+*.pt
+*.pth
+*.ncnn.param
+data/voice/*.xlsx

@@ -1,0 +1,26 @@
+[Unit]
+Description=OLED real inspection state on shared FPGA IIC
+Requires=pynq-fpga.service
+BindsTo=pynq-fpga.service
+PartOf=pynq-fpga.service
+After=pynq-fpga.service pynq-camera-web.service
+Wants=pynq-camera-web.service
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/xilinx/gesture_demo/camera_web
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=XILINX_XRT=/usr
+Environment=PYTHONPATH=/opt/pynq-shared
+ExecStart=/usr/local/share/pynq-venv/bin/python3 -u /home/xilinx/gesture_demo/camera_web/oled_result.py --pl-iic --address 0x3c
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

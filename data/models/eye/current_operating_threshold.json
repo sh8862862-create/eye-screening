@@ -1,0 +1,40 @@
+{
+  "changed_at": "2026-10-23T23:38:59.426214",
+  "before": 0.98,
+  "after": 0.85,
+  "tests": {
+    "thresholds": [
+      0.8,
+      0.55,
+      0.55,
+      0.5,
+      0.5,
+      0.5,
+      0.85
+    ],
+    "source": "/home/xilinx/eye_model/artifacts/model_config.json",
+    "cases": [
+      {
+        "normal_score": 0.8499,
+        "disease_score": 0.01,
+        "decision": "uncertain"
+      },
+      {
+        "normal_score": 0.8501,
+        "disease_score": 0.01,
+        "decision": "normal"
+      },
+      {
+        "normal_score": 0.99,
+        "disease_score": 0.9,
+        "decision": "disease"
+      }
+    ],
+    "passed": true
+  },
+  "boot_unchanged": true,
+  "fpga_unchanged": true,
+  "weights_unchanged": true,
+  "services_unchanged": true,
+  "applies_to": "new inspections; existing reports preserved"
+}

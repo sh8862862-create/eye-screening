@@ -1,0 +1,10 @@
+# Initial owner; replace module entries only after teammates accept write access.
+* @sh8862862-create
+/src/hls/ @sh8862862-create
+/build/scripts/ @sh8862862-create
+/src/ps/gesture/ @sh8862862-create
+/src/ps/eye/ @sh8862862-create
+/src/ps/shared/ @sh8862862-create
+/src/ps/camera_web/ @sh8862862-create
+/.github/ @sh8862862-create
+/resources/ @sh8862862-create

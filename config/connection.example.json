@@ -1,0 +1,7 @@
+{
+  "board_url": "http://192.0.2.10:8080",
+  "ssh_host": "192.0.2.10",
+  "ssh_user": "xilinx",
+  "ssh_port": 22,
+  "models_relative_path": "data/models/eye"
+}

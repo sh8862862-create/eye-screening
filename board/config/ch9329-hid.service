@@ -1,0 +1,30 @@
+[Unit]
+Description=CH9329 gesture UART on shared FPGA
+Requires=pynq-fpga.service
+BindsTo=pynq-fpga.service
+PartOf=pynq-fpga.service
+After=pynq-fpga.service network-online.target pynq-camera-web.service
+Wants=pynq-camera-web.service
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/xilinx/ch9329_hid
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=XILINX_XRT=/usr
+Environment=PYTHONPATH=/opt/pynq-shared
+ExecStart=/usr/local/share/pynq-venv/bin/python3 -u /home/xilinx/ch9329_hid/hid_bridge.py --api http://192.168.2.99:8080/api/state --status-file /home/xilinx/ch9329_hid/logs/status.json --log-dir /home/xilinx/ch9329_hid/logs
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=15
+MemoryMax=160M
+TasksMax=32
+Nice=-5
+
+[Install]
+WantedBy=multi-user.target

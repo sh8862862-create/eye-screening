@@ -1,0 +1,38 @@
+[Unit]
+Description=Shared FPGA palm inference helper
+Requires=pynq-fpga.service
+BindsTo=pynq-fpga.service
+PartOf=pynq-fpga.service
+After=pynq-fpga.service
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=notify
+NotifyAccess=main
+TimeoutStartSec=60
+User=root
+Group=xilinx
+WorkingDirectory=/opt/pynq-palm
+RuntimeDirectory=pynq-palm
+RuntimeDirectoryMode=0750
+Environment=XILINX_XRT=/usr
+Environment=PYTHONPATH=/opt/pynq-shared:/opt/opencv-neon/lib/python3.10/site-packages
+Environment=LD_LIBRARY_PATH=/opt/opencv-neon/lib
+Environment=OMP_NUM_THREADS=2
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/local/share/pynq-venv/bin/python3 -u /opt/pynq-palm/palm_service.py
+Restart=on-failure
+RestartSec=5
+# Never force-free DMA buffers by SIGKILL when a kernel fails to drain.
+TimeoutStopSec=infinity
+SendSIGKILL=no
+KillMode=mixed
+NoNewPrivileges=true
+ProtectSystem=full
+PrivateTmp=true
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target

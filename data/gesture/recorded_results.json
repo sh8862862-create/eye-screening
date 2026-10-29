@@ -1,0 +1,485 @@
+[
+  {
+    "at": 2209.775956633,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.442799142645943,
+      "palm_width": 77.41965915072302,
+      "index_y": 228.2704620361328,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 174.2
+    }
+  },
+  {
+    "at": 2211.687683529,
+    "event": "INDEX_DOWN_HOLD",
+    "features": {
+      "pinch_ratio": 0.34413522324052503,
+      "palm_width": 82.0489335874602,
+      "index_y": 340.4562683105469,
+      "pointing": false,
+      "open_palm": false,
+      "fingers": [
+        "folded",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "down",
+      "index_bend_deg": 76.3
+    }
+  },
+  {
+    "at": 2221.900100535,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.206301360095299,
+      "palm_width": 81.4281728225342,
+      "index_y": 213.8789520263672,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 169.4
+    }
+  },
+  {
+    "at": 2231.409208909,
+    "event": "INDEX_DOWN_HOLD",
+    "features": {
+      "pinch_ratio": 0.06817273636885161,
+      "palm_width": 87.43910633453426,
+      "index_y": 302.7710266113281,
+      "pointing": false,
+      "open_palm": false,
+      "fingers": [
+        "folded",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "down",
+      "index_bend_deg": 17.2
+    }
+  },
+  {
+    "at": 2232.802680605,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.2567083242746784,
+      "palm_width": 95.02777973947988,
+      "index_y": 203.16720581054688,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 176.7
+    }
+  },
+  {
+    "at": 2241.411624752,
+    "event": "INDEX_DOWN_HOLD",
+    "features": {
+      "pinch_ratio": 0.13128837240364474,
+      "palm_width": 111.99489698262984,
+      "index_y": 340.5033264160156,
+      "pointing": false,
+      "open_palm": false,
+      "fingers": [
+        "folded",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "down",
+      "index_bend_deg": 12.2
+    }
+  },
+  {
+    "at": 2243.493113217,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.4201914628232444,
+      "palm_width": 102.49177281712242,
+      "index_y": 199.9909210205078,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 174.5
+    }
+  },
+  {
+    "at": 2251.572932688,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.2674984026805665,
+      "palm_width": 98.96521692595714,
+      "index_y": 225.0624237060547,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 173.5
+    }
+  },
+  {
+    "at": 2261.781606076,
+    "event": "INDEX_DOWN_HOLD",
+    "features": {
+      "pinch_ratio": 0.2722765855345773,
+      "palm_width": 84.7636616819761,
+      "index_y": 303.32568359375,
+      "pointing": false,
+      "open_palm": false,
+      "fingers": [
+        "folded",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "down",
+      "index_bend_deg": 42.1
+    }
+  },
+  {
+    "at": 2279.571594603,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 0.9230273230609808,
+      "palm_width": 98.60370656216419,
+      "index_y": 289.0234680175781,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 170.7
+    }
+  },
+  {
+    "at": 2288.763551642,
+    "event": "INDEX_DOWN_HOLD",
+    "features": {
+      "pinch_ratio": 0.36625821503553246,
+      "palm_width": 81.85523245353994,
+      "index_y": 352.564697265625,
+      "pointing": false,
+      "open_palm": false,
+      "fingers": [
+        "folded",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "down",
+      "index_bend_deg": 27.1
+    }
+  },
+  {
+    "at": 2296.769167525,
+    "event": "INDEX_DOWN_HOLD",
+    "features": {
+      "pinch_ratio": 0.5271706464356323,
+      "palm_width": 92.5535641991517,
+      "index_y": 245.07431030273438,
+      "pointing": false,
+      "open_palm": false,
+      "fingers": [
+        "folded",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "down",
+      "index_bend_deg": 92.9
+    }
+  },
+  {
+    "at": 2300.796776073,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.0471589323681634,
+      "palm_width": 85.2331942055004,
+      "index_y": 171.3929443359375,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 178.6
+    }
+  },
+  {
+    "at": 2305.604940398,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.1127305976670767,
+      "palm_width": 96.34411446518342,
+      "index_y": 174.8622589111328,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 171.1
+    }
+  },
+  {
+    "at": 2847.422463849,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.4734850954102225,
+      "palm_width": 90.36764883489407,
+      "index_y": 161.0845947265625,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 176.6
+    }
+  },
+  {
+    "at": 2851.443288157,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.437330275529483,
+      "palm_width": 91.86244042530875,
+      "index_y": 158.8498992919922,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 179.5
+    }
+  },
+  {
+    "at": 2870.708151839,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.5373523685511465,
+      "palm_width": 85.14193570656857,
+      "index_y": 90.98979949951172,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 176.4
+    }
+  },
+  {
+    "at": 2904.07082974,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.5967834856183705,
+      "palm_width": 94.1347947695001,
+      "index_y": 87.81723022460938,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 175.9
+    }
+  },
+  {
+    "at": 2920.358031722,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.2433199533671868,
+      "palm_width": 71.17782563837999,
+      "index_y": 147.12063598632812,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 171.4
+    }
+  },
+  {
+    "at": 2929.052378072,
+    "event": "INDEX_DOWN_HOLD",
+    "features": {
+      "pinch_ratio": 0.22477970150037863,
+      "palm_width": 89.8971946355209,
+      "index_y": 264.1899719238281,
+      "pointing": false,
+      "open_palm": false,
+      "fingers": [
+        "folded",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "down",
+      "index_bend_deg": 8.0
+    }
+  },
+  {
+    "at": 2970.271955057,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.2013350528300881,
+      "palm_width": 87.9979144832939,
+      "index_y": 160.31393432617188,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 173.1
+    }
+  },
+  {
+    "at": 2974.849642293,
+    "event": "INDEX_DOWN_HOLD",
+    "features": {
+      "pinch_ratio": 0.5122872279614314,
+      "palm_width": 82.87282225175346,
+      "index_y": 240.35037231445312,
+      "pointing": false,
+      "open_palm": false,
+      "fingers": [
+        "folded",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "down",
+      "index_bend_deg": 79.7
+    }
+  },
+  {
+    "at": 2982.226106596,
+    "event": "INDEX_UP_HOLD",
+    "features": {
+      "pinch_ratio": 1.3055251506640269,
+      "palm_width": 84.70572580255579,
+      "index_y": 196.86505126953125,
+      "pointing": true,
+      "open_palm": false,
+      "fingers": [
+        "extended",
+        "folded",
+        "folded",
+        "folded"
+      ],
+      "thumb_folded": true,
+      "index_scroll_pose": true,
+      "index_scroll_direction": "up",
+      "index_bend_deg": 178.4
+    }
+  }
+]

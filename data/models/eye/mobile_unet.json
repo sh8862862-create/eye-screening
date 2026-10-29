@@ -1,0 +1,28 @@
+{
+  "task": "localizer",
+  "architecture": "mobile_unet",
+  "classes": [
+    "pinguecula",
+    "pterygium"
+  ],
+  "image_size": 128,
+  "output_activation": "sigmoid",
+  "thresholds": [
+    0.5,
+    0.5
+  ],
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "supervision": "weak_bounding_rectangle",
+  "onnx_opset": 11
+}

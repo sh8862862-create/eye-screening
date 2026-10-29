@@ -1,0 +1,26 @@
+[Unit]
+Description=PYNQ-Z2 shared FPGA buttons (BTN0 voice questionnaire, BTN1 capture, BTN2 abort)
+Requires=pynq-fpga.service
+BindsTo=pynq-fpga.service
+PartOf=pynq-fpga.service
+After=pynq-fpga.service pynq-camera-web.service
+Wants=pynq-camera-web.service
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/xilinx/gesture_demo/camera_web
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=XILINX_XRT=/usr
+Environment=PYTHONPATH=/opt/pynq-shared
+ExecStart=/usr/local/share/pynq-venv/bin/python3 -u button_service.py --base-url http://192.168.2.99:8080 --token-file /home/xilinx/gesture_demo/camera_web/data/.csrf_token --restart-command "systemctl restart pynq-camera-web.service"
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=10
+
+[Install]
+WantedBy=multi-user.target

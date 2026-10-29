@@ -1,0 +1,177 @@
+[
+  {
+    "path": "src/hls/palm_depthwise_v6.cpp",
+    "sha256": "6d000279ac97b7e1a2f31f90b41126d23aeec81e466ff395c6964d0aeaaa01a8",
+    "bytes": 4479
+  },
+  {
+    "path": "src/native/ncnn_bridge.cpp",
+    "sha256": "2cb6f5ab54346443b7000e90def21d6114d2e0480ede3ad21c1cb71f72a9781b",
+    "bytes": 2068
+  },
+  {
+    "path": "src/ps/camera_web/device_status.py",
+    "sha256": "1992193d3087c2a57aa996802cef973a583156ddf2f70b1eb46136825b95612d",
+    "bytes": 5774
+  },
+  {
+    "path": "src/ps/camera_web/gesture_output.py",
+    "sha256": "244cd85b53a990269246b845f7dd2f42841ca59e43815a7a78cbfe6ec3159ec8",
+    "bytes": 895
+  },
+  {
+    "path": "src/ps/camera_web/index.html",
+    "sha256": "12cbe1028daa34bca6fd191b34bdb4bf7569721cddd7c93970b395d14f268651",
+    "bytes": 23425
+  },
+  {
+    "path": "src/ps/camera_web/oled_result.py",
+    "sha256": "8aa97f4c0a1e2b3921b1a7d1bc6fc70d5890a62295998bcb78ecdc9b50f56145",
+    "bytes": 35664
+  },
+  {
+    "path": "src/ps/camera_web/review.html",
+    "sha256": "c725d029c351be494a9a62f38570ddfdc818b09f4243e8d3a3737c10b629416a",
+    "bytes": 286844
+  },
+  {
+    "path": "src/ps/camera_web/service.py",
+    "sha256": "52685bfe6599475849ea9824b5dda43684ce2127d98c7926bc95107b46c9247f",
+    "bytes": 31532
+  },
+  {
+    "path": "src/ps/camera_web/workers.py",
+    "sha256": "a64fcb46b6278ec4a943142a11799bc32d17a5a89f4932d222d93c2dd8366b5c",
+    "bytes": 12716
+  },
+  {
+    "path": "src/ps/eye/infer.py",
+    "sha256": "3b9173b9db9e8d919871bb52df78030b36348c529889fed63615f1f42456a52d",
+    "bytes": 21342
+  },
+  {
+    "path": "src/ps/eye/report.py",
+    "sha256": "83b5a1975d00a326236ef61e6fb0d6763ea540808f20adb8fc7f2856fa43289e",
+    "bytes": 14806
+  },
+  {
+    "path": "src/ps/gesture/fast_handpose.py",
+    "sha256": "9a45f101855ecf9276407e54132efa0bada97d3c68a5b52f131c35b23f229f48",
+    "bytes": 2475
+  },
+  {
+    "path": "src/ps/gesture/gesture_control.py",
+    "sha256": "c1435a41378332d59c288f4a6d8f7128a667bd6083c4af75d00a8088d9235973",
+    "bytes": 12424
+  },
+  {
+    "path": "src/ps/gesture/hand_tracker.py",
+    "sha256": "eb404a4797c7062af08235a110ea032769f1f1c0c77dc9507190b26b299531d4",
+    "bytes": 6608
+  },
+  {
+    "path": "src/ps/gesture/mp_handpose.py",
+    "sha256": "0b6598b86a4d5bbbc973f11a27b4ee3db5b9acabcc3c3d78600b728dadc28807",
+    "bytes": 9545
+  },
+  {
+    "path": "src/ps/gesture/mp_palmdet.py",
+    "sha256": "7efda9135a8385e2d3a66fa90dc32ee3b196498ebb1eba922bef0121272349b3",
+    "bytes": 93836
+  },
+  {
+    "path": "src/ps/gesture/ncnn_runtime.py",
+    "sha256": "8240f148e9ab43f51b4e991ce32f3e98d866468004e323e1c7d7c57de9c5adf4",
+    "bytes": 1849
+  },
+  {
+    "path": "src/ps/gesture/pose_runtime.py",
+    "sha256": "bbcb75c40d512ec30d7ca0159911b774c376f90f961bd5e93857d59270d57181",
+    "bytes": 2183
+  },
+  {
+    "path": "src/ps/oled/oled_iic.py",
+    "sha256": "587bb87eb279905c10f0a5dcf2ad7d364d8f22fb40f9b1f3eab98c5b18a67d09",
+    "bytes": 15137
+  },
+  {
+    "path": "src/ps/palm/custom_layer.py",
+    "sha256": "42d6bee37af7058cdd0d46d0f650069f2fc0115f07997fb4a1a90bbc13b10aba",
+    "bytes": 1307
+  },
+  {
+    "path": "src/ps/palm/deploy_palm.py",
+    "sha256": "2915d1cc6c89a7f75acee95e61a896b86e5ee319623aeea625b7fdd6f4d82276",
+    "bytes": 5051
+  },
+  {
+    "path": "src/ps/palm/native_layer.py",
+    "sha256": "fdd0ac19eedf83984d228cbe2ca8d67ca0fdbf2d90d61333a58f5c9761776127",
+    "bytes": 1345
+  },
+  {
+    "path": "src/ps/palm/palm_rpc.py",
+    "sha256": "a3f5dfd78eb534f947db9877200315c66de40883bb1fd589084eddb8b432b9ef",
+    "bytes": 2520
+  },
+  {
+    "path": "src/ps/palm/palm_service.py",
+    "sha256": "5bc3100f56977815c4790bb3d9f99134a7cd69554765bf522718b7a0acb8dad4",
+    "bytes": 3620
+  },
+  {
+    "path": "src/ps/palm/pl_backend.py",
+    "sha256": "3f0404926b71de089828e8117e4491b67d83340f7a7cdc991c1903ca2a7ac96c",
+    "bytes": 7407
+  },
+  {
+    "path": "src/ps/palm/workers.py",
+    "sha256": "9e48d4d25bdad356383307d82f5e18c891bbd1531ba78dac4084fb3275aa9d38",
+    "bytes": 12148
+  },
+  {
+    "path": "src/ps/shared/button_service.py",
+    "sha256": "0e72e32ba0aac367dfe2674a403cd0ef697b3f1a77c1f1db6cdcbd0eacd71f2a",
+    "bytes": 25960
+  },
+  {
+    "path": "src/ps/shared/ch9329.py",
+    "sha256": "ad55b5fc09630cd5971a2f60ebcdf4e9b3dce8a984ff260f195912d7ea5ec7a2",
+    "bytes": 12306
+  },
+  {
+    "path": "src/ps/shared/hid_bridge.py",
+    "sha256": "e166cbb34c03ec97e4fa652be6b4bef0b34e100e7538365e92f4734855001053",
+    "bytes": 18913
+  },
+  {
+    "path": "src/ps/shared/overlay.py",
+    "sha256": "d566f7063250dd3384e0ec958c248190d3858a7cd06bf250359c2074c532356a",
+    "bytes": 564
+  },
+  {
+    "path": "src/ps/shared/shared_fpga.py",
+    "sha256": "305f73ac37e8daf175d11602a9c7860d16697015d78aea29f5457444a97e516f",
+    "bytes": 13115
+  },
+  {
+    "path": "src/ps/shared/uart_lite.py",
+    "sha256": "ff6693c2bd547a7330a3ae472b75cd9f1f06e70a589b05773ffdc3040ff870cc",
+    "bytes": 7317
+  },
+  {
+    "path": "src/ps/shared/voice_check.py",
+    "sha256": "dc37c4de44bd8e08e5e666fbd9c5515a60f1a6d95c1e89609477c64346d5c0e0",
+    "bytes": 2695
+  },
+  {
+    "path": "src/ps/shared/wonderecho.py",
+    "sha256": "f1d0cc14529f73cc3758133a4e613ae0ebbb772f320ad4593daf3f84ed059a0a",
+    "bytes": 8029
+  },
+  {
+    "path": "src/README.md",
+    "sha256": "b98c8ba26de9e4314b4e681d8dfb7f6285687580433390a65b24593e0ddd9518",
+    "bytes": 218
+  }
+]

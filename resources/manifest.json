@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "edition": "20261029",
+  "delivery": "Release attachment or authorized local transfer",
+  "archive_name": "eye-screening-resources-20261029.zip",
+  "archive_sha256": "84e2476503d8579a171d0019430337f33d67635f3893befdc64b0348081ce10b",
+  "files": [
+    {
+      "path": "data/third_party/ncnn-20261020.zip",
+      "bytes": 17501952,
+      "sha256": "ca7643d59d50b8ff455edfe4b08c64da0355028ef57d87ac8fa5264d1d18e4ab"
+    },
+    {
+      "path": "data/voice/questionnaire_protocol.xlsx",
+      "bytes": 16518,
+      "sha256": "be3e6824d9eec46251b94472bab706bb51847f2ae5b790c565c7ac820c57b8dd"
+    },
+    {
+      "path": "data/models/eye/mobilenet_v3_small.onnx",
+      "bytes": 6148538,
+      "sha256": "949deb363bbf21c054844a09b9354c3f5082777d7b914f1684e76a4251d16c85"
+    },
+    {
+      "path": "data/models/eye/mobile_unet.onnx",
+      "bytes": 84025,
+      "sha256": "923445378dde60a6b304800ba6746c28ee520f2d2a33342e91f09ffd7bd2c3f5"
+    },
+    {
+      "path": "data/models/gesture/handpose.onnx",
+      "bytes": 4088001,
+      "sha256": "beedd73f361ed6083185916bc8dc148172a6022118fd277b125edf24ea326f31"
+    },
+    {
+      "path": "data/models/gesture/palm.onnx",
+      "bytes": 3905734,
+      "sha256": "78ff51c38496b7fc8b8ebdb6cc8c1abb02fa6c38427c6848254cdaba57fcce7c"
+    },
+    {
+      "path": "board/releases/gesture_latency_20261028/handpose.ncnn.bin",
+      "bytes": 4047052,
+      "sha256": "ec4411a9b6fd576d7281b0356943a5e8a993b26f4e1ef53a08e949862792bf08"
+    },
+    {
+      "path": "board/releases/gesture_latency_20261028/handpose.ncnn.param",
+      "bytes": 7738,
+      "sha256": "7206fe276fe6eddcf58078253fc94dd57768fba5e4664a689275648485e93238"
+    },
+    {
+      "path": "board/releases/gesture_latency_20261028/libgesture_ncnn.so",
+      "bytes": 655780,
+      "sha256": "f534f3df59074a02d484096b275af1aa650e112ec13034ac5d8ad66f33adf8d8"
+    },
+    {
+      "path": "board/releases/palm_pl_20261028/libpalm_layer.so",
+      "bytes": 32240,
+      "sha256": "9364e5e20951e96cd92f693d265ff6b81bc34adfddd524304ad5f3ed98be87ff"
+    },
+    {
+      "path": "board/releases/palm_pl_20261028/palm_custom.onnx",
+      "bytes": 3905404,
+      "sha256": "a3817d02633b8c55266b0cc8a98396ee2a6f501e23d3e4f858d9ec7a328f6456"
+    },
+    {
+      "path": "board/releases/palm_pl_20261028/pynq_shared.bit",
+      "bytes": 4045676,
+      "sha256": "ff8f8b7cd0a4bf9ff28bfe937436c6357692bf5899aa3baa12433d458d3906f5"
+    },
+    {
+      "path": "board/releases/palm_pl_20261028/pynq_shared.hwh",
+      "bytes": 410902,
+      "sha256": "f65f28963ca41b68f3de587f8a4ee66f22f414fe372de39e92f4f6646f3a4229"
+    },
+    {
+      "path": "board/releases/palm_pl_20261028/weights.npz",
+      "bytes": 370394,
+      "sha256": "8570cf68e89c50d2570cd5d5f96af9871efec4e06d02d52ec7bb7aac4cbb7b2e"
+    },
+    {
+      "path": "board/firmware/wonderecho/ci1302_v00729_uart1_115200_2m.bin",
+      "bytes": 1936989,
+      "sha256": "103764409a27da31afee704af64b66e4330243aa8397f9014bc94cdcb363fc72"
+    }
+  ]
+}
