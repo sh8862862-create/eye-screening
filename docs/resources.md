@@ -6,7 +6,7 @@
 
 ## 导入固定版本资源
 
-文件名为 `eye-screening-resources-20261029.zip`，由维护者随对应私有 Release 附件或获授权的本地传输提供。本次只生成本地文件，尚没有远端下载链接。包含 15 个模型、硬件、运行库、ncnn 源码包及问卷源表，路径与 SHA256 固定在 [资源清单](../resources/manifest.json)。不含训练集或现场照片。
+文件名为 `eye-screening-resources-20261029.zip`，由维护者随对应私有 Release 附件或获授权的本地传输提供。可在[私有资源发布页](https://github.com/sh8862862-create/eye-screening/releases/tag/v0.1.0-collaboration)下载。包含 15 个模型、硬件、运行库、ncnn 源码包及问卷源表，路径与 SHA256 固定在 [资源清单](../resources/manifest.json)。不含训练集或现场照片。
 
 获得文件后，在仓库根目录运行：
 

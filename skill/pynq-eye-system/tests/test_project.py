@@ -48,7 +48,7 @@ class ProjectTests(unittest.TestCase):
                                    'path': 'original.py', 'sha256': project.sha(source)}]}
             (full / 'report/organization/file_inventory.json').write_text(json.dumps(inventory))
             with patch.dict(os.environ, {'EYE_FULL_PACKAGE_ROOT': str(full)}):
-                self.assertEqual(project.resolve_original(self.root, 'train.py'), source)
+                self.assertEqual(project.resolve_original(self.root, 'train.py'), source.resolve())
                 source.write_text('changed')
                 with self.assertRaises(ValueError):
                     project.resolve_original(self.root, 'train.py')
