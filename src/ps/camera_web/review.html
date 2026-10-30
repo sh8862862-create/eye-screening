@@ -714,7 +714,8 @@ dialog::backdrop{background:rgba(9,20,28,.44);backdrop-filter:blur(3px)}
 
         <section class="pane" data-pane="confirm">
           <span class="eyebrow">待确认</span>
-          <h3 class="pane-title">照片已采集</h3>
+          <h3 class="pane-title" id="confirmTitle">照片已采集</h3>
+          <p class="device-error" id="eyePresenceNotice" role="alert" hidden>未识别到眼睛，请调整摄像头后重新拍摄。</p>
           <p class="lede">请在 <b>1:1 比例</b>下检查对焦、曝光与画面方向。确认后 B 相机保持关闭，板卡开始分析。</p>
           <div class="qc" id="qc">
             <div><span>曝光</span><b id="qcExposure">—</b></div>
@@ -1321,10 +1322,10 @@ dialog::backdrop{background:rgba(9,20,28,.44);backdrop-filter:blur(3px)}
   function derivePhase(s) {
     if (!s) return 'empty';
     if (s.report_ready) return 'report';
+    if (s.busy && (s.phase === 'CAPTURING' || s.phase === 'PROCESSING')) return 'analyzing';
     const wf = s.workflow_state;
     if (wf === 'AWAITING_IMAGE_REVIEW') return 'confirm';
     if (wf === 'EYE_CAPTURE' || wf === 'EYE_PROCESSING_CAMERAS_CLOSED') return 'analyzing';
-    if (s.busy && (s.phase === 'CAPTURING' || s.phase === 'PROCESSING')) return 'analyzing';
     if (s.camera_active) return 'capture';
     return 'empty';
   }
@@ -1456,13 +1457,23 @@ dialog::backdrop{background:rgba(9,20,28,.44);backdrop-filter:blur(3px)}
 
   function renderConfirm() {
     if (!state) return;
+    const noEye = state.image_validation?.status === 'no_eye';
+    byId('confirmTitle').textContent = noEye ? '未识别到眼睛' : '照片已采集';
+    byId('eyePresenceNotice').hidden = !noEye;
     el.checkEye.disabled = state.busy;
   }
 
   function renderError() {
     const err = state?.error || '';
     if (!err) { hideBanner(); dismissedError = ''; return; }
-    if (err !== dismissedError) showBanner(err);
+    if (err !== dismissedError) {
+      showBanner(err);
+      if (state.image_validation?.status === 'no_eye' && err === state.image_validation.message) {
+        el.bannerTitle.textContent = '拍摄提示';
+        el.bannerAction.textContent = '重拍';
+        el.bannerAction.onclick = retake;
+      }
+    }
   }
 
   /* ---------------- buttons ---------------- */
@@ -2385,8 +2396,8 @@ dialog::backdrop{background:rgba(9,20,28,.44);backdrop-filter:blur(3px)}
           '<li><strong>生成报告并完整性校验</strong><span>SHA-256 校验通过后才允许阅片</span></li>';
       } else {
         el.anKicker.textContent = '分析中';
-        el.anTitle.textContent = '正在生成研究报告';
-        el.anLede.textContent = '相机已关闭，照片已锁定并通过 SHA-256 校验。';
+        el.anTitle.textContent = '正在检查并分析眼部影像';
+        el.anLede.textContent = '正在检查照片中的眼睛，检测通过后继续分析并生成报告；请等待。';
         el.anSteps.innerHTML =
           '<li class="done"><strong>照片采集与锁定</strong><span>已写入板卡本地会话目录</span></li>' +
           '<li class="done"><strong>关闭眼部相机</strong><span>单相机分时，避免 USB 供电冲突</span></li>' +

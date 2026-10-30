@@ -1,0 +1,10 @@
+{
+  "name": "eye-screening-checks",
+  "private": true,
+  "scripts": {
+    "test:ui": "node sim/test_eye_presence_ui.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

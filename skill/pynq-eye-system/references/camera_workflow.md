@@ -33,3 +33,11 @@ USB 曾从旧 HUB 的端口映射变更到手势 1.3、眼部 1.4；这些是历
 
 
 本文件的历史工程路径按 [协作版资源与归档说明](../../../docs/resources.md) 访问。协作版默认 verify 不要求完整归档，工具测试不要求模型或板卡。
+
+## 分析前检测与 BTN3 等待（2026-10-30）
+
+`workers.py` 在分类前调用 `eye_presence.validate_saved_eye`，检测前后核对本次照片摘要。`no_eye` 保留 `AWAITING_IMAGE_REVIEW`，不创建分析、报告或启动手势；新照片清除旧提示。`PROCESSING` 的显示优先于已保存记录中的待确认状态。缺失模型/组件是技术错误，不应解释成无眼。
+
+网页服务的 NEON OpenCV 可能不含 `CascadeClassifier`。只在有 30 秒超时的独立检测子进程移除 NEON 路径，使用已有完整运行库；不能替换整个手势环境。部署测试必须继承服务实际的 `PYTHONPATH`、`LD_LIBRARY_PATH`，普通 SSH 终端测试可能遗漏这个故障。
+
+检查 `/api/state.image_validation`、照片摘要、是否生成分析和当前页面；无眼场景、清晰眼图、重拍、忙碌状态分别验证。离线入口：`python -B sim/test_eye_presence.py -v`；UI：`npm run test:ui`（先安装项目 npm 依赖和 Chromium）。私有照片回归通过 `EYE_PRESENCE_FIXTURES` 提供。板端证据和检测误差边界见 `report/eye_presence_20261030.md`。

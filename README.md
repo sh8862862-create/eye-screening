@@ -57,3 +57,13 @@ GitHub Actions 在 push main、Pull Request 和手动触发时运行离线检查
 ## 首次发布
 
 使用私有仓库，操作顺序见 [首次上传清单](docs/github_upload.md)。项目整体许可证尚未选定；已有第三方许可保留。完整训练数据与模型再分发权需单独核对，见 [授权与数据范围](docs/licenses_and_data.md)。
+
+## 2026-10-30：分析前眼部检测
+
+点击分析或按 BTN3 后先检测本次照片。未检出眼睛时显示提示并允许重拍，不生成报告；处理中立即显示进度。修订及已有板端证据见 [检测说明](report/eye_presence_20261030.md)。
+
+新增离线回归：`python -B sim/test_eye_presence.py -v`。默认运行合成图像、状态流转和运行库隔离测试，3 项私有照片回归明确跳过。团队成员取得授权夹具后设置 `EYE_PRESENCE_FIXTURES` 为夹具目录，再运行同一命令；全量应运行 18 项且无跳过。
+
+网页测试需 Node.js 22：`npm ci` → `npx playwright install chromium` → `npm run test:ui`。Linux 首次安装可用 `npx playwright install --with-deps chromium`。测试不访问板卡，输出写到忽略的 `sim/results/`。
+
+Haar XML 随源码保留原许可；训练数据、现场照片、会话记录不上传。原模型/bit/hwh 资源包继续适用；发布载荷须由更新后的源码与映射重新生成。

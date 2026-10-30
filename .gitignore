@@ -44,3 +44,8 @@ board/snapshots/
 *.pth
 *.ncnn.param
 data/voice/*.xlsx
+
+# Local eye-presence evidence and private test images
+node_modules/
+sim/results/
+sim/eye_presence/fixtures/

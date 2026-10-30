@@ -44,3 +44,7 @@ python -B skill/pynq-eye-system/tests/test_project.py
 
 
 本文件的历史工程路径按 [协作版资源与归档说明](../../../docs/resources.md) 访问。协作版默认 verify 不要求完整归档，工具测试不要求模型或板卡。
+
+## 眼部照片门控
+
+无眼图：保持待确认、可重拍、无报告和手势启动；清晰眼图：进入原分析；缺失组件：技术错误且不分类；BTN3 忙碌时显示进度。运行 `python -B sim/test_eye_presence.py -v` 和 `npm run test:ui`，另记录授权照片回归与实物 BTN3 反馈，不能把默认跳过的照片测试写成通过。

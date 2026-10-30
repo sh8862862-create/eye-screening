@@ -1,5 +1,5 @@
 {
-  "edition": "source-collaboration-20261030",
+  "edition": "source-collaboration-eye-presence-20261030",
   "files": [
     {
       "path": "board/config/ch9329-hid.service",
@@ -263,18 +263,18 @@
     },
     {
       "path": "src/ps/camera_web/review.html",
-      "bytes": 286844,
-      "sha256": "c725d029c351be494a9a62f38570ddfdc818b09f4243e8d3a3737c10b629416a"
+      "bytes": 287503,
+      "sha256": "a555c43b9a849adbca87ef2bff16ee90f42df26d4c4759b553a86f3fd3a316e9"
     },
     {
       "path": "src/ps/camera_web/service.py",
-      "bytes": 31532,
-      "sha256": "52685bfe6599475849ea9824b5dda43684ce2127d98c7926bc95107b46c9247f"
+      "bytes": 31674,
+      "sha256": "3472261814c6c4384431f906fac4a2f51fcea0c12eb8f5017928680d30eab582"
     },
     {
       "path": "src/ps/camera_web/workers.py",
-      "bytes": 12716,
-      "sha256": "a64fcb46b6278ec4a943142a11799bc32d17a5a89f4932d222d93c2dd8366b5c"
+      "bytes": 12966,
+      "sha256": "afa6f3c5e7b5243c8a1a64e109be54e10d3828e6f534f7ca578270f86fc40ee6"
     },
     {
       "path": "src/ps/eye/infer.py",
@@ -345,6 +345,21 @@
       "path": "src/ps/shared/wonderecho.py",
       "bytes": 8029,
       "sha256": "f1d0cc14529f73cc3758133a4e613ae0ebbb772f320ad4593daf3f84ed059a0a"
+    },
+    {
+      "path": "src/ps/camera_web/eye_presence.py",
+      "bytes": 6680,
+      "sha256": "a98b99bf2d239447c329b1141a1d63323a201ee0753eff598ff15e606661b375"
+    },
+    {
+      "path": "src/ps/camera_web/eye_presence_models/haarcascade_eye.xml",
+      "bytes": 341406,
+      "sha256": "71cc64fc305a355dc60067880f6fbbd43dd155bd63ee3844661a1bda34b2fd8c"
+    },
+    {
+      "path": "src/ps/camera_web/eye_presence_models/haarcascade_eye_tree_eyeglasses.xml",
+      "bytes": 601661,
+      "sha256": "e32f9c67935c33e9d1331eb14fa58554ff17835c03742663bcb97a892e936a57"
     }
   ]
 }

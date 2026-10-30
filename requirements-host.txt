@@ -1,4 +1,3 @@
 # Optional host inference/preview; NOT a PYNQ ARMv7 installation recipe.
 -r requirements-dev.txt
-opencv-python>=4.8,<5
 Pillow>=10,<13

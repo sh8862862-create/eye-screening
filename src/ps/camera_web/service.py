@@ -150,6 +150,7 @@ class Manager:
                         **self.control_output_state(),
                         session_id=(self.record or {}).get('check_id'),
                         workflow_state=(self.record or {}).get('state'),
+                        image_validation=(self.record or {}).get('image_validation'),
                         report_ready=(self.record or {}).get('state') in READY,
                         auto_resume=self.auto, uptime_s=round(now-self.started_at),
                         free_mb=round(shutil.disk_usage(self.data).free/1024**2))
@@ -422,7 +423,7 @@ class Manager:
                 if outcome.get('ok') and self.job.exitcode == 0:
                     self.record = outcome['record']
                     self.phase = self.record['state']
-                    self.error = ''
+                    self.error = self.record.get('image_validation', {}).get('message', '')
                     # Analysis finished with both cameras closed.  Only after
                     # the report/hash gate succeeds do we open A and start
                     # the web-only gesture worker.  This keeps the requested

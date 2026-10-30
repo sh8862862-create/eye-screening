@@ -269,6 +269,11 @@ def workflow_worker(switch_root, session, config, action, output):
         if action == 'capture':
             record = capture_eye(Path(session), config)
         else:
+            from eye_presence import validate_saved_eye
+            record = validate_saved_eye(Path(session))
+            if not record['image_validation']['detected']:
+                output.put(dict(ok=True, record=record))
+                return
             record = analyze_eye(Path(session), True, 'cpu')
         output.put(dict(ok=True, record=record))
     except BaseException as exc:
