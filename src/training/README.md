@@ -4,4 +4,4 @@
 
 `eye_base` 是原三类分类及弱定位包，需作为 `python -m src.training.eye_base.train` 运行，不是当前七类分类模型的替代入口。
 
-公开源码不包含训练集或检查点。七类训练按 EYE_NORMAL_DATA、EYE_DISEASE_DATA、EYE_BASE_CHECKPOINT 指定已授权输入；六类旧训练辅助模块的 EYE_TRAINING_ROOT 指向包含 dataset6.npz 与 runs/best6.pt 的目录。默认均不下载数据。
+仓库根目录 `training set/` 包含七类图像、标签与划分索引；原训练缓存与检查点仍需另行提供。该分类文件夹不是现有 prepare 脚本要求的 dataset6.npz/normal_500 格式，不能仅更改路径直接替代。七类训练按 EYE_NORMAL_DATA、EYE_DISEASE_DATA、EYE_BASE_CHECKPOINT 指定已授权输入；六类旧训练辅助模块的 EYE_TRAINING_ROOT 指向包含 dataset6.npz 与 runs/best6.pt 的目录。默认均不下载数据。

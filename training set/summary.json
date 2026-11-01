@@ -1,0 +1,24 @@
+{
+  "total": 2053,
+  "counts": {
+    "pinguecula": 485,
+    "pterygium": 465,
+    "subconjunctival_hemorrhage": 464,
+    "hordeolum": 30,
+    "blepharitis": 93,
+    "dacryocystitis": 16,
+    "normal": 500
+  },
+  "old_multi_label_note": "old images assigned to argmax of the three old labels; full multi-label set is in labels.csv",
+  "skipped_old_no_label": 0,
+  "excluded": "5 clinical supplement images (held out, not used in training)",
+  "directory_names": {
+    "pinguecula": "睑裂斑",
+    "pterygium": "翼状胬肉",
+    "subconjunctival_hemorrhage": "结膜下出血",
+    "hordeolum": "麦粒肿",
+    "blepharitis": "睑缘炎",
+    "dacryocystitis": "泪囊炎",
+    "normal": "正常眼"
+  }
+}

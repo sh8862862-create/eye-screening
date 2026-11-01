@@ -2,7 +2,7 @@
 
 用于研究测试的眼部图像分析、十题语音问卷、网页报告及手势阅片系统。板卡为 PYNQ-Z2 / Zynq-7020；眼部推理、关键点与业务流程在 PS，掌检测的六个深度卷积节点使用 PL。研究模型输出不作为临床有效性证明。
 
-这是多人协作的源码版，模型/bit/hwh/运行库单独保存在带摘要的资源包中。历史工程、训练集、现场照片和检查报告不进入源码仓库。原始完整工程继续保留。
+这是多人协作的源码版，模型/bit/hwh/运行库单独保存在带摘要的资源包中。七类图像训练集位于独立的 `training set/` 目录；历史工程、现场检查照片和用户检查报告另行保留。原始完整工程继续保留。
 
 ## 本地开始
 
@@ -29,6 +29,7 @@ Linux 对应解释器为 `.venv/bin/python`。离线测试不连接板卡、不�
 | `build/scripts/` | 相对路径构建入口；输出到忽略的 `build/work/` |
 | `board/` | 配置与阶段性发布源码，发布时按最终映射选文件 |
 | `data/` | 模型元数据、最小数值回归样本、第三方许可 |
+| `training set/` | 七类图像训练集（2053 张）、英文类别文件夹、标签索引与数据说明 |
 | `resources/` | 外部资源路径/大小/SHA256 与源码文件清单 |
 | `skill/` | 一个综合技能入口，8 类流程覆盖 14 项能力 |
 
@@ -66,12 +67,12 @@ GitHub Actions 在 push main、Pull Request 和手动触发时运行离线检查
 
 网页测试需 Node.js 22：`npm ci` → `npx playwright install chromium` → `npm run test:ui`。Linux 首次安装可用 `npx playwright install --with-deps chromium`。测试不访问板卡，输出写到忽略的 `sim/results/`。
 
-Haar XML 随源码保留原许可；训练数据、现场照片、会话记录不上传。原模型/bit/hwh 资源包继续适用；发布载荷须由更新后的源码与映射重新生成。
+Haar XML 随源码保留原许可；训练集见独立的 `training set/` 目录；现场检查照片、会话记录另行保留。原模型/bit/hwh 资源包继续适用；发布载荷须由更新后的源码与映射重新生成。
 
 ## 2026-11-01 提交版同步
 
 最新 [V5 设计报告](report/design_report_20261101_v5.docx)、[提交材料索引](report/submission/README.md)、[新板复现说明](report/reproduction/README.md) 与 [14 项能力技能包](skill/README.md) 已同步。新增双摄像机工作流、Waitress、相机角色配置、全新目录安装器、运行库恢复器、环境检查、训练源码及 OpenCV/原生库构建入口。
 
-配套运行资源更新至 [v0.2.0-submission](https://github.com/sh8862862-create/eye-screening/releases/tag/v0.2.0-submission)，导入方法见 [资源说明](docs/resources.md)。源码版保留协作配置，七类比赛交付目录保持对应。训练数据、现场照片与历史归档继续在完整包中管理。
+配套运行资源更新至 [v0.2.0-submission](https://github.com/sh8862862-create/eye-screening/releases/tag/v0.2.0-submission)，导入方法见 [资源说明](docs/resources.md)。源码版保留协作配置，七类比赛交付目录保持对应。七类图像训练集另置于 `training set/`；现场检查照片与历史归档继续在完整包中管理。
 
-已有 93 项通过/4 项 Linux 条件跳过、8 项新增校验工具通过和 OLED 用户实物验收直接引用，见 [同步记录](report/github_sync_20261101.md)。本次同步没有重复运行旧工程测试、连接板卡或重新综合训练。
+训练集包含 2053 张原始图像文件，七个类别文件夹已改为英文，`labels.csv` 中对应文件路径同步更新。完整多标签及训练/验证/测试划分保持不变，见 [训练集说明](training%20set/README.md)。

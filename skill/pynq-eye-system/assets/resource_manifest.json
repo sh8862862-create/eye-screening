@@ -244,8 +244,8 @@
     },
     {
       "path": "skill/README.md",
-      "bytes": 8456,
-      "sha256": "fd2e3c120d3ac14320ca7b4b60ab73951273c21c88cdda7f319ee09e3d251b07"
+      "bytes": 8539,
+      "sha256": "bd1391c0440572eb8ba142eed167026cfa8067a497a982763a6201ae90bf18ff"
     },
     {
       "path": "skill/pynq-eye-system/SKILL.md",

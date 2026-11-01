@@ -44,3 +44,7 @@ python -B tools/resources.py status
 ```
 
 本仓库当前为公开仓库；正文前部“私有 Release”描述为最初建仓方案，不代表当前访问权限。公开附件不包含训练数据、现场照片或完整历史会话。
+
+## 独立图像训练集
+
+`training set/` 随仓库提供，共 2053 张图像，含英文类别目录、labels.csv 和 summary.json。它不放入运行资源 ZIP，也不改变 resources/manifest.json 的运行资源版本；详细来源、多标签与划分见 [训练集说明](../training%20set/README.md)。

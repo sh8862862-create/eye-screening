@@ -19,3 +19,9 @@
 *.so binary
 *.npz binary
 *.zip binary
+
+# Preserve training images and the dataset manifest byte-for-byte.
+*.png binary
+*.jpg binary
+*.jpeg binary
+"training set/**" -text

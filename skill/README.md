@@ -41,4 +41,4 @@
 
 ## 公开源码与完整工程的区别
 
-本页历史结果来自完整提交包；公开源码不含照片、训练数据和历史归档。缺失的归档资源列入 capabilities 的 archive_resources，不能标为运行就绪。运行资源需按 [资源说明](../docs/resources.md) 导入；来源与本次同步范围见 [同步记录](../report/github_sync_20261101.md)。
+本页历史结果来自完整提交包；公开仓库已增加 `training set/` 七类图像训练集；现场检查照片、训练缓存与检查点、历史归档仍单独管理。缺失的归档资源列入 capabilities 的 archive_resources，不能标为运行就绪。运行资源需按 [资源说明](../docs/resources.md) 导入；来源与本次同步范围见 [同步记录](../report/github_sync_20261101.md)。
