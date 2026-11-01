@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "roles_confirmed": false,
+  "eye": "/dev/v4l/by-path/platform-ci_hdrc.0-usb-0:1.4:1.0-video-index0",
+  "gesture": "/dev/v4l/by-path/platform-ci_hdrc.0-usb-0:1.3:1.0-video-index0",
+  "eye_processor": "/home/xilinx/eye_model/deploy/infer.py",
+  "eye_classifier": "/home/xilinx/eye_model/artifacts/mobilenet_v3_small.onnx",
+  "eye_localizer": "/home/xilinx/eye_model/artifacts/mobile_unet.onnx",
+  "gesture_script": "/home/xilinx/gesture_demo/gesture_image_test/live_gesture_log.py",
+  "gesture_rotation": 180,
+  "note": "Reference USB paths only. Confirm both physical camera roles on the target before enabling."
+}

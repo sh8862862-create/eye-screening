@@ -221,7 +221,7 @@ def main(argv=None):
     diag = commands.add_parser('diagnose')
     diag.add_argument('--snapshot', type=Path, required=True)
     build = commands.add_parser('build')
-    build.add_argument('target', choices=('hls', 'overlay', 'ncnn'))
+    build.add_argument('target', choices=('hls', 'overlay', 'ncnn', 'opencv', 'palm-native'))
     build.add_argument('--execute', action='store_true', help='Execute the displayed build using installed tools')
     infer = commands.add_parser('infer')
     infer.add_argument('--image', required=True, type=Path)
@@ -263,7 +263,9 @@ def main(argv=None):
     elif args.command == 'build':
         builds = {'hls': ['vitis_hls', '-f', 'build/scripts/build_palm_hls.tcl'],
                   'overlay': ['vivado', '-mode', 'batch', '-source', 'build/scripts/build_palm_overlay.tcl'],
-                  'ncnn': ['sh', 'build/scripts/build_ncnn.sh']}
+                  'ncnn': ['sh', 'build/scripts/build_ncnn.sh'],
+                  'opencv': ['sh', 'build/scripts/build_opencv_neon.sh'],
+                  'palm-native': ['sh', 'build/scripts/build_palm_native.sh']}
         emit({'cwd': str(root), 'argv': builds[args.target], 'execute': args.execute})
         if args.execute:
             if args.target == 'ncnn':

@@ -1,0 +1,40 @@
+[Unit]
+Description=PYNQ local camera workbench
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=notify
+NotifyAccess=main
+WatchdogSec=45
+User=xilinx
+Group=xilinx
+SupplementaryGroups=video
+WorkingDirectory=/home/xilinx/gesture_demo/camera_web
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=XILINX_XRT=/usr
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=OMP_NUM_THREADS=2
+ExecStartPre=/usr/local/share/pynq-venv/bin/python3 /home/xilinx/gesture_demo/camera_web/wait_for_address.py
+ExecStart=/usr/local/share/pynq-venv/bin/python3 -u /home/xilinx/gesture_demo/camera_web/service.py
+Restart=on-failure
+RestartSec=8
+KillMode=control-group
+TimeoutStopSec=18
+TimeoutStartSec=100
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+UMask=0077
+MemoryHigh=300M
+MemoryMax=360M
+TasksMax=80
+LimitNOFILE=256
+LogRateLimitIntervalSec=30s
+LogRateLimitBurst=40
+
+[Install]
+WantedBy=multi-user.target

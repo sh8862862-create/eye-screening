@@ -1,0 +1,12 @@
+{
+  "path": "data/runtime/opencv_neon_armv7_20261101.tar.gz",
+  "sha256": "267c0328d34611f91793608804378e8aba42b3e01c3fb37dc8772ec7b7bb9205",
+  "bytes": 7879703,
+  "architecture": "armv7l",
+  "python": "3.10",
+  "opencv": "4.5.4",
+  "pynq": "3.1.1",
+  "source": "/opt/opencv-neon",
+  "captured": "2026-11-01",
+  "scope": "Runtime snapshot; requires matching Ubuntu 22.04 ARMhf system dependencies"
+}

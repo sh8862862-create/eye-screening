@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "edition": "20261029",
-  "delivery": "Release attachment or authorized local transfer",
-  "archive_name": "eye-screening-resources-20261029.zip",
-  "archive_sha256": "84e2476503d8579a171d0019430337f33d67635f3893befdc64b0348081ce10b",
+  "edition": "20261101",
+  "delivery": "GitHub Release v0.2.0-submission; no training data or session photographs",
+  "archive_name": "eye-screening-resources-20261101.zip",
+  "archive_sha256": "a0718a3ffdb14fd660ed970f8589deba0e6a80c7658da403dbfbef04960ff6be",
   "files": [
     {
       "path": "data/third_party/ncnn-20261020.zip",
@@ -79,6 +79,31 @@
       "path": "board/firmware/wonderecho/ci1302_v00729_uart1_115200_2m.bin",
       "bytes": 1936989,
       "sha256": "103764409a27da31afee704af64b66e4330243aa8397f9014bc94cdcb363fc72"
+    },
+    {
+      "path": "data/runtime/opencv_neon_armv7_20261101.tar.gz",
+      "bytes": 7879703,
+      "sha256": "267c0328d34611f91793608804378e8aba42b3e01c3fb37dc8772ec7b7bb9205"
+    },
+    {
+      "path": "data/runtime/fonts/dejavusans.ttf",
+      "bytes": 757076,
+      "sha256": "252d320379dd882551c53b75dfb620cb0ffe2d6657445743d79f2100f1d96f21"
+    },
+    {
+      "path": "data/runtime/fonts/droidsansfallbackfull.ttf",
+      "bytes": 4033420,
+      "sha256": "acb6440a713d880a13a21b468ba7cd43f5a2b2934972e51be791c880730777b8"
+    },
+    {
+      "path": "data/third_party/opencv-4.5.4.tar.gz",
+      "bytes": 89724634,
+      "sha256": "c20bb83dd790fc69df9f105477e24267706715a9d3c705ca1e7f613c7b3bad3d"
+    },
+    {
+      "path": "data/third_party/wheelhouse/waitress-3.0.2-py3-none-any.whl",
+      "bytes": 56232,
+      "sha256": "c56d67fd6e87c2ee598b76abdd4e96cfad1f24cacdea5078d382b1f9d7b5ed2e"
     }
   ]
 }

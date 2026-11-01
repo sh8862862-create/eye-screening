@@ -56,7 +56,7 @@ GitHub Actions 在 push main、Pull Request 和手动触发时运行离线检查
 
 ## 首次发布
 
-使用私有仓库，操作顺序见 [首次上传清单](docs/github_upload.md)。项目整体许可证尚未选定；已有第三方许可保留。完整训练数据与模型再分发权需单独核对，见 [授权与数据范围](docs/licenses_and_data.md)。
+仓库现已公开，首次建仓的历史操作顺序见 [首次上传清单](docs/github_upload.md)。项目整体许可证尚未选定；已有第三方许可保留。完整训练数据与模型再分发范围需单独核对，见 [授权与数据范围](docs/licenses_and_data.md)。
 
 ## 2026-10-30：分析前眼部检测
 
@@ -67,3 +67,11 @@ GitHub Actions 在 push main、Pull Request 和手动触发时运行离线检查
 网页测试需 Node.js 22：`npm ci` → `npx playwright install chromium` → `npm run test:ui`。Linux 首次安装可用 `npx playwright install --with-deps chromium`。测试不访问板卡，输出写到忽略的 `sim/results/`。
 
 Haar XML 随源码保留原许可；训练数据、现场照片、会话记录不上传。原模型/bit/hwh 资源包继续适用；发布载荷须由更新后的源码与映射重新生成。
+
+## 2026-11-01 提交版同步
+
+最新 [V5 设计报告](report/design_report_20261101_v5.docx)、[提交材料索引](report/submission/README.md)、[新板复现说明](report/reproduction/README.md) 与 [14 项能力技能包](skill/README.md) 已同步。新增双摄像机工作流、Waitress、相机角色配置、全新目录安装器、运行库恢复器、环境检查、训练源码及 OpenCV/原生库构建入口。
+
+配套运行资源更新至 [v0.2.0-submission](https://github.com/sh8862862-create/eye-screening/releases/tag/v0.2.0-submission)，导入方法见 [资源说明](docs/resources.md)。源码版保留协作配置，七类比赛交付目录保持对应。训练数据、现场照片与历史归档继续在完整包中管理。
+
+已有 93 项通过/4 项 Linux 条件跳过、8 项新增校验工具通过和 OLED 用户实物验收直接引用，见 [同步记录](report/github_sync_20261101.md)。本次同步没有重复运行旧工程测试、连接板卡或重新综合训练。

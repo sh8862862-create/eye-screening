@@ -276,6 +276,16 @@
       "mode": "0644"
     },
     {
+      "source": "src/ps/camera_web/wait_for_address.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/wait_for_address.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/hid_serial.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/hid_serial.py",
+      "mode": "0644"
+    },
+    {
       "source": "src/ps/camera_web/eye_presence_models/haarcascade_eye.xml",
       "target": "/home/xilinx/gesture_demo/camera_web/eye_presence_models/haarcascade_eye.xml",
       "mode": "0644"
@@ -284,19 +294,148 @@
       "source": "src/ps/camera_web/eye_presence_models/haarcascade_eye_tree_eyeglasses.xml",
       "target": "/home/xilinx/gesture_demo/camera_web/eye_presence_models/haarcascade_eye_tree_eyeglasses.xml",
       "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_switch/sequential_camera.py",
+      "target": "/home/xilinx/gesture_demo/camera_switch/sequential_camera.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_switch/staged_workflow.py",
+      "target": "/home/xilinx/gesture_demo/camera_switch/staged_workflow.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_switch/workflow_process.py",
+      "target": "/home/xilinx/gesture_demo/camera_switch/workflow_process.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/gesture/live_gesture_log.py",
+      "target": "/home/xilinx/gesture_demo/gesture_image_test/live_gesture_log.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/gesture/gesture_sender.py",
+      "target": "/home/xilinx/gesture_demo/gesture_image_test/gesture_sender.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/config/pynq-camera-web.service",
+      "target": "/etc/systemd/system/pynq-camera-web.service",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/__init__.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/__init__.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/__main__.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/__main__.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/adjustments.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/adjustments.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/buffers.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/buffers.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/channel.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/channel.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/compat.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/compat.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/parser.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/parser.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/proxy_headers.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/proxy_headers.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/receiver.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/receiver.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/rfc7230.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/rfc7230.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/runner.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/runner.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/server.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/server.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/task.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/task.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/trigger.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/trigger.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/utilities.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/utilities.py",
+      "mode": "0644"
+    },
+    {
+      "source": "src/ps/camera_web/vendor/waitress/wasyncore.py",
+      "target": "/home/xilinx/gesture_demo/camera_web/vendor/waitress/wasyncore.py",
+      "mode": "0644"
+    },
+    {
+      "source": "board/config/opencv-neon.conf",
+      "target": "/etc/systemd/system/pynq-camera-web.service.d/opencv-neon.conf",
+      "mode": "0644"
+    },
+    {
+      "source": "data/runtime/fonts/droidsansfallbackfull.ttf",
+      "target": "/opt/pynq-shared/fonts/droidsansfallbackfull.ttf",
+      "mode": "0644"
+    },
+    {
+      "source": "data/runtime/fonts/dejavusans.ttf",
+      "target": "/opt/pynq-shared/fonts/dejavusans.ttf",
+      "mode": "0644"
+    },
+    {
+      "source": "board/config/eye-fonts.conf",
+      "target": "/etc/systemd/system/eye-oled.service.d/fonts.conf",
+      "mode": "0644"
     }
   ],
   "preconditions": [
-    "Existing configured PYNQ 3.1.1 installation and camera_web base unit",
-    "Confirmed camera roles and runtime libraries",
-    "No active inspection; DMA idle and backups verified before installation"
+    "PYNQ-Z2 ARMv7 PYNQ 3.1.1 image and compatible runtime; see report/reproduction/README.md",
+    "Explicit target camera roles, stable by-path mappings and address 192.168.2.99",
+    "Fresh install or independently backed-up inactive upgrade target; DMA idle before hardware changes"
   ],
   "preserve": [
-    "camera_switch/",
     "camera_web/data/",
     "inspection reports",
     "system dependency environment",
-    "existing camera_web base unit"
+    "target-specific camera_roles.json"
   ],
   "postchecks": [
     "sha256 for every changed file",

@@ -47,3 +47,9 @@ description: 开发、复现、排查和维护 PYNQ-Z2 眼表筛查与手势交�
 ## 完成与记录
 
 按任务报告变更文件、输入和版本、运行命令、实际结果、部署状态、回退定位及未验证内容。可使用 [实验记录模板](assets/experiment_record.md)；模板中的待填写项不代表通过。环境缺失时完成可运行部分，保存明确的阻塞原因。技能测试入口见 [验收矩阵](references/acceptance.md)。
+
+## 2026-11-01 综合技能更新
+
+14 项能力的范围、用法、失效条件、效果见 [技能说明](../README.md)。跨项目复用见 [复用指南](references/reuse_guide.md)、[踩坑清单](references/failure_catalog.md) 和 [模板](assets/prompt_workflows.md)。新增 compare_results.py 与 check_implementation.py 可以独立运行。新增 build opencv / palm-native 仍默认只显示计划。
+
+已有匹配版本的通过记录直接引用，只对实际改动运行必要检查。完整包的旧测试与硬件验收不因同步而重复。源码版保留自身 verify/test/locate/restore 入口，完整历史操作仍需 EYE_FULL_PACKAGE_ROOT；全新安装需导入 20261101 资源，见 [复现说明](../../report/reproduction/README.md)。

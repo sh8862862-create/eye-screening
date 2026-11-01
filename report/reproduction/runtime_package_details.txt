@@ -1,0 +1,43 @@
+/home/xilinx/opencv-build
+/home/xilinx/opencv-build/opencv_python_config.cmake
+/home/xilinx/opencv-build/opencv_data_config.hpp
+/home/xilinx/opencv-build/OpenCVModules.cmake
+/home/xilinx/opencv-build/OpenCVConfig-version.cmake
+/home/xilinx/opencv-build/opencv2
+/home/xilinx/opencv-build/OpenCVConfig.cmake
+/home/xilinx/opencv-4.5.4
+/home/xilinx/opencv-4.5.4.tar.gz
+/opt/opencv-neon/share/licenses
+fonts-dejavu-core	2.37-2build1
+fonts-droid-fallback	1:6.0.1r16-1.1build1
+libgomp1:armhf	12-20220319-1ubuntu1
+python3-numpy	1:1.21.5-1build2
+python3-opencv:armhf	4.5.4+dfsg-9ubuntu4
+python3-pil:armhf	9.0.1-1build1
+/opt/opencv-neon/lib/python3.10/site-packages/cv2/python-3.10/cv2.cpython-310-arm-linux-gnueabihf.so
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: OpenCV
+Source: https://opencv.org
+Files-Excluded:
+ 3rdparty
+ doc/js_tutorials/js_assets/lena.jpg
+ doc/js_tutorials/js_assets/lenaFace.png
+ doc/tutorials/dnn/images/lena_hed.jpg
+ doc/tutorials/introduction/clojure_dev_intro/images/lena.png
+ doc/tutorials/introduction/desktop_java/images/lena.png
+ doc/tutorials/introduction/images/lena.png
+ modules/highgui/src/files_Qt/Milky
+ modules/java/test/common_test/res/drawable/lena.png
+ modules/core/misc/objc/test/resources/lena.png
+ samples/data/lena.jpg
+ samples/data/lena_tmpl.jpg
+ samples/java/clojure/simple-sample/resources
+ samples/java/clojure/simple-sample/resources/images
+ samples/java/clojure/simple-sample/resources/images/lena.png
+ samples/winrt/OcvImageProcessing/OcvImageProcessing/Assets/Lena.png
+ samples/winrt_universal/PhoneTutorial/Lena.png
+ samples/wp8/OcvRotatingCube/PhoneXamlDirect3DApp1/PhoneXamlDirect3DApp1/Assets/Lena.png
+ samples/wp8/OpenCVXaml/OpenCVXaml/Assets/Lena.png
+Files-Excluded-contrib:
+ modules/xfeatures2d
+ls: cannot access '/var/cache/apt/archives/python3-opencv*': No such file or directory

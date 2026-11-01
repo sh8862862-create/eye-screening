@@ -1,0 +1,487 @@
+
+
+================================================================
+== Synthesis Summary Report of 'palm_depthwise'
+================================================================
++ General Information: 
+    * Date:           Wed Oct 28 15:15:31 2026
+    * Version:        2024.1 (Build 5069499 on May 21 2024)
+    * Project:        palm_dw_v6_20261028
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------------------------------+------+------+----------+-----------+----------+----------+------+----------+----------+-----------+-------------+-------------+-----+
+    |                    Modules                    | Issue|      | Latency  |  Latency  | Iteration|          | Trip |          |          |           |             |             |     |
+    |                    & Loops                    | Type | Slack| (cycles) |    (ns)   |  Latency | Interval | Count| Pipelined|   BRAM   |    DSP    |      FF     |     LUT     | URAM|
+    +-----------------------------------------------+------+------+----------+-----------+----------+----------+------+----------+----------+-----------+-------------+-------------+-----+
+    |+ palm_depthwise                               |     -|  0.00|  16481040|  1.648e+08|         -|  16481041|     -|        no|  71 (25%)|  140 (63%)|  19506 (18%)|  34812 (65%)|    -|
+    | o VITIS_LOOP_53_1                             |     -|  7.30|  16481024|  1.648e+08|     64379|         -|   256|        no|         -|          -|            -|            -|    -|
+    |  + palm_depthwise_Pipeline_VITIS_LOOP_56_2    |     -|  0.00|        28|    280.000|         -|        28|     -|        no|         -|          -|    873 (~0%)|    302 (~0%)|    -|
+    |   o VITIS_LOOP_56_2                           |     -|  7.30|        26|    260.000|         3|         1|    25|       yes|         -|          -|            -|            -|    -|
+    |  o VITIS_LOOP_61_3                            |     -|  7.30|     22000|  2.200e+05|       220|         -|   100|        no|         -|          -|            -|            -|    -|
+    |   + palm_depthwise_Pipeline_VITIS_LOOP_64_4   |     -|  0.00|        99|    990.000|         -|        99|     -|        no|         -|          -|     58 (~0%)|    101 (~0%)|    -|
+    |    o VITIS_LOOP_64_4                          |     -|  7.30|        97|    970.000|         3|         1|    96|       yes|         -|          -|            -|            -|    -|
+    |   + palm_depthwise_Pipeline_VITIS_LOOP_70_5   |     -|  0.09|       102|  1.020e+03|         -|       102|     -|        no|         -|          -|     49 (~0%)|    257 (~0%)|    -|
+    |    o VITIS_LOOP_70_5                          |     -|  7.30|       100|  1.000e+03|         2|         1|   100|       yes|         -|          -|            -|            -|    -|
+    |  o VITIS_LOOP_76_6                            |     -|  7.30|     42336|  4.234e+05|       441|         -|    96|        no|         -|          -|            -|            -|    -|
+    |   + palm_depthwise_Pipeline_VITIS_LOOP_78_7   |     -|  1.60|        98|    980.000|         -|        98|     -|        no|         -|          -|     17 (~0%)|     90 (~0%)|    -|
+    |    o VITIS_LOOP_78_7                          |     -|  7.30|        96|    960.000|         2|         1|    96|       yes|         -|          -|            -|            -|    -|
+    |   + accumulate_row                            |     -|  0.04|       229|  2.290e+03|         -|       229|     -|        no|         -|  125 (56%)|  13115 (12%)|  27103 (50%)|    -|
+    |    o VITIS_LOOP_8_1                           |     -|  7.30|       227|  2.270e+03|       133|         1|    96|       yes|         -|          -|            -|            -|    -|
+    |   + palm_depthwise_Pipeline_VITIS_LOOP_92_10  |     -|  0.00|        99|    990.000|         -|        99|     -|        no|         -|          -|     44 (~0%)|    101 (~0%)|    -|
+    |    o VITIS_LOOP_92_10                         |     -|  7.30|        97|    970.000|         3|         1|    96|       yes|         -|          -|            -|            -|    -|
+    +-----------------------------------------------+------+------+----------+-----------+----------+----------+------+----------+----------+-----------+-------------+-------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Read/Write | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            |            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | READ_WRITE | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 64           | 64           | 16          | 16          | BRAM=4            |
++------------+------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 24     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register   | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL       | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER       | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER     | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR     | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | ap_return  | 0x10   | 32    | R      | Data signal of ap_return         |                                                                      |
+| s_axi_control | input_r_1  | 0x18   | 32    | W      | Data signal of input_r           |                                                                      |
+| s_axi_control | input_r_2  | 0x1c   | 32    | W      | Data signal of input_r           |                                                                      |
+| s_axi_control | weights_1  | 0x24   | 32    | W      | Data signal of weights           |                                                                      |
+| s_axi_control | weights_2  | 0x28   | 32    | W      | Data signal of weights           |                                                                      |
+| s_axi_control | bias_1     | 0x30   | 32    | W      | Data signal of bias              |                                                                      |
+| s_axi_control | bias_2     | 0x34   | 32    | W      | Data signal of bias              |                                                                      |
+| s_axi_control | output_r_1 | 0x3c   | 32    | W      | Data signal of output_r          |                                                                      |
+| s_axi_control | output_r_2 | 0x40   | 32    | W      | Data signal of output_r          |                                                                      |
+| s_axi_control | channels   | 0x48   | 32    | W      | Data signal of channels          |                                                                      |
+| s_axi_control | height     | 0x50   | 32    | W      | Data signal of height            |                                                                      |
+| s_axi_control | width      | 0x58   | 32    | W      | Data signal of width             |                                                                      |
+| s_axi_control | out_h      | 0x60   | 32    | W      | Data signal of out_h             |                                                                      |
+| s_axi_control | out_w      | 0x68   | 32    | W      | Data signal of out_w             |                                                                      |
+| s_axi_control | stride     | 0x70   | 32    | W      | Data signal of stride            |                                                                      |
+| s_axi_control | pad        | 0x78   | 32    | W      | Data signal of pad               |                                                                      |
++---------------+------------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+---------------+
+| Argument | Direction | Datatype      |
++----------+-----------+---------------+
+| input    | inout     | float const * |
+| weights  | inout     | float const * |
+| bias     | inout     | float const * |
+| output   | inout     | float*        |
+| channels | in        | int           |
+| height   | in        | int           |
+| width    | in        | int           |
+| out_h    | in        | int           |
+| out_w    | in        | int           |
+| stride   | in        | int           |
+| pad      | in        | int           |
+| return   | out       | int           |
++----------+-----------+---------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+--------------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                              |
++----------+---------------+-----------+----------+--------------------------------------+
+| input    | m_axi_gmem    | interface |          | channel=0                            |
+| input    | s_axi_control | register  | offset   | name=input_r_1 offset=0x18 range=32  |
+| input    | s_axi_control | register  | offset   | name=input_r_2 offset=0x1c range=32  |
+| weights  | m_axi_gmem    | interface |          | channel=0                            |
+| weights  | s_axi_control | register  | offset   | name=weights_1 offset=0x24 range=32  |
+| weights  | s_axi_control | register  | offset   | name=weights_2 offset=0x28 range=32  |
+| bias     | m_axi_gmem    | interface |          | channel=0                            |
+| bias     | s_axi_control | register  | offset   | name=bias_1 offset=0x30 range=32     |
+| bias     | s_axi_control | register  | offset   | name=bias_2 offset=0x34 range=32     |
+| output   | m_axi_gmem    | interface |          | channel=0                            |
+| output   | s_axi_control | register  | offset   | name=output_r_1 offset=0x3c range=32 |
+| output   | s_axi_control | register  | offset   | name=output_r_2 offset=0x40 range=32 |
+| channels | s_axi_control | register  |          | name=channels offset=0x48 range=32   |
+| height   | s_axi_control | register  |          | name=height offset=0x50 range=32     |
+| width    | s_axi_control | register  |          | name=width offset=0x58 range=32      |
+| out_h    | s_axi_control | register  |          | name=out_h offset=0x60 range=32      |
+| out_w    | s_axi_control | register  |          | name=out_w offset=0x68 range=32      |
+| stride   | s_axi_control | register  |          | name=stride offset=0x70 range=32     |
+| pad      | s_axi_control | register  |          | name=pad offset=0x78 range=32        |
+| return   | s_axi_control | register  |          | name=ap_return offset=0x10 range=32  |
++----------+---------------+-----------+----------+--------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+-----------+----------+-------+------------------+-------------------------------------------------------------------------------------------------+
+| HW Interface | Direction | Length   | Width | Loop             | Loop Location                                                                                   |
++--------------+-----------+----------+-------+------------------+-------------------------------------------------------------------------------------------------+
+| m_axi_gmem   | read      | 25       | 32    | VITIS_LOOP_56_2  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:56:26 |
+| m_axi_gmem   | read      | variable | 32    | VITIS_LOOP_64_4  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:64:34 |
+| m_axi_gmem   | write     | variable | 32    | VITIS_LOOP_92_10 | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:92:31 |
++--------------+-----------+----------+-------+------------------+-------------------------------------------------------------------------------------------------+
+
+* All M_AXI Variable Accesses
++--------------+----------+-------------------------------------------------------------------------------------------------+-----------+--------------+----------+------------------+-------------------------------------------------------------------------------------------------+------------+---------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location                                                                                 | Direction | Burst Status | Length   | Loop             | Loop Location                                                                                   | Resolution | Problem                                                                                                 |
++--------------+----------+-------------------------------------------------------------------------------------------------+-----------+--------------+----------+------------------+-------------------------------------------------------------------------------------------------+------------+---------------------------------------------------------------------------------------------------------+
+| m_axi_gmem   | bias     | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:55:10 | read      | Fail         |          |                  |                                                                                                 | 214-231    | Access is clobbered by load                                                                             |
+| m_axi_gmem   | weights  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:58:11 | read      | Widen Fail   |          | VITIS_LOOP_56_2  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:56:26 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | weights  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:58:11 | read      | Fail         |          |                  |                                                                                                 | 214-231    | Access is clobbered by load                                                                             |
+| m_axi_gmem   | weights  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:58:11 | read      | Inferred     | 25       | VITIS_LOOP_56_2  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:56:26 |            |                                                                                                         |
+| m_axi_gmem   | input    | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:67:9  | read      | Widen Fail   |          | VITIS_LOOP_64_4  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:64:34 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | input    | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:67:9  | read      | Fail         |          | VITIS_LOOP_61_3  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:61:26 | 214-230    | Stride is incompatible                                                                                  |
+| m_axi_gmem   | input    | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:67:9  | read      | Inferred     | variable | VITIS_LOOP_64_4  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:64:34 |            |                                                                                                         |
+| m_axi_gmem   | output   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:95:29 | write     | Widen Fail   |          | VITIS_LOOP_92_10 | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:92:31 | 214-353    | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | output   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:95:29 | write     | Fail         |          | VITIS_LOOP_76_6  | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:76:26 | 214-230    | Stride is incompatible                                                                                  |
+| m_axi_gmem   | output   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:95:29 | write     | Inferred     | variable | VITIS_LOOP_92_10 | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:92:31 |            |                                                                                                         |
++--------------+----------+-------------------------------------------------------------------------------------------------+-----------+--------------+----------+------------------+-------------------------------------------------------------------------------------------------+------------+---------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2024.1%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------------------------+-----+--------+---------------+-----------+-----------+---------+
+| Name                                          | DSP | Pragma | Variable      | Op        | Impl      | Latency |
++-----------------------------------------------+-----+--------+---------------+-----------+-----------+---------+
+| + palm_depthwise                              | 140 |        |               |           |           |         |
+|   add_ln43_fu_935_p2                          |     |        | add_ln43      | add       | fabric    | 0       |
+|   icmp_ln43_fu_950_p2                         |     |        | icmp_ln43     | setne     | auto      | 0       |
+|   add_ln43_1_fu_956_p2                        |     |        | add_ln43_1    | add       | fabric    | 0       |
+|   icmp_ln43_1_fu_961_p2                       |     |        | icmp_ln43_1   | setgt     | auto      | 0       |
+|   add_ln43_2_fu_967_p2                        |     |        | add_ln43_2    | add       | fabric    | 0       |
+|   icmp_ln43_2_fu_972_p2                       |     |        | icmp_ln43_2   | setgt     | auto      | 0       |
+|   add_ln43_3_fu_978_p2                        |     |        | add_ln43_3    | add       | fabric    | 0       |
+|   icmp_ln43_3_fu_983_p2                       |     |        | icmp_ln43_3   | setgt     | auto      | 0       |
+|   add_ln43_4_fu_989_p2                        |     |        | add_ln43_4    | add       | fabric    | 0       |
+|   icmp_ln43_4_fu_994_p2                       |     |        | icmp_ln43_4   | setgt     | auto      | 0       |
+|   or_ln43_fu_1000_p2                          |     |        | or_ln43       | or        | auto      | 0       |
+|   or_ln43_1_fu_1006_p2                        |     |        | or_ln43_1     | or        | auto      | 0       |
+|   or_ln43_2_fu_1012_p2                        |     |        | or_ln43_2     | or        | auto      | 0       |
+|   or_ln43_3_fu_1018_p2                        |     |        | or_ln43_3     | or        | auto      | 0       |
+|   mul_32s_32s_32_2_1_U262                     | 3   |        | mul_ln45      | mul       | auto      | 1       |
+|   mul_32s_32s_32_2_1_U261                     | 3   |        | mul_ln45_1    | mul       | auto      | 1       |
+|   grp_fu_910_p2                               |     |        | icmp_ln45     | setgt     | auto      | 0       |
+|   mul_32s_32s_32_2_1_U262                     | 3   |        | mul_ln45_2    | mul       | auto      | 1       |
+|   mul_32s_32s_32_2_1_U261                     | 3   |        | mul_ln45_3    | mul       | auto      | 1       |
+|   add_ln46_fu_1024_p2                         |     |        | add_ln46      | add       | fabric    | 0       |
+|   grp_fu_910_p2                               |     |        | icmp_ln45_1   | setgt     | auto      | 0       |
+|   icmp_ln45_2_fu_1039_p2                      |     |        | icmp_ln45_2   | setne     | auto      | 0       |
+|   icmp_ln46_fu_1045_p2                        |     |        | icmp_ln46     | setgt     | auto      | 0       |
+|   or_ln45_fu_1050_p2                          |     |        | or_ln45       | or        | auto      | 0       |
+|   or_ln45_1_fu_1056_p2                        |     |        | or_ln45_1     | or        | auto      | 0       |
+|   mul_32s_32s_32_2_1_U261                     | 3   |        | mul_ln47      | mul       | auto      | 1       |
+|   add_ln47_1_fu_1062_p2                       |     |        | add_ln47_1    | add       | fabric    | 0       |
+|   icmp_ln47_fu_1067_p2                        |     |        | icmp_ln47     | setgt     | auto      | 0       |
+|   mul_32s_32s_32_2_1_U261                     | 3   |        | mul_ln47_1    | mul       | auto      | 1       |
+|   add_ln47_3_fu_1073_p2                       |     |        | add_ln47_3    | add       | fabric    | 0       |
+|   icmp_ln47_1_fu_1078_p2                      |     |        | icmp_ln47_1   | setgt     | auto      | 0       |
+|   add56_fu_1108_p2                            |     |        | add56         | add       | fabric    | 0       |
+|   add62_fu_1113_p2                            |     |        | add62         | add       | fabric    | 0       |
+|   add84_fu_1118_p2                            |     |        | add84         | add       | fabric    | 0       |
+|   add95_fu_1123_p2                            |     |        | add95         | add       | fabric    | 0       |
+|   cmp158_fu_1084_p2                           |     |        | cmp158        | seteq     | auto      | 0       |
+|   icmp_ln53_fu_1160_p2                        |     |        | icmp_ln53     | setgt     | auto      | 0       |
+|   select_ln53_fu_1166_p3                      |     |        | select_ln53   | select    | auto_sel  | 0       |
+|   icmp_ln53_1_fu_1187_p2                      |     |        | icmp_ln53_1   | setgt     | auto      | 0       |
+|   select_ln53_1_fu_1193_p3                    |     |        | select_ln53_1 | select    | auto_sel  | 0       |
+|   icmp_ln53_2_fu_1095_p2                      |     |        | icmp_ln53_2   | setlt     | auto      | 0       |
+|   select_ln53_2_fu_1100_p3                    |     |        | select_ln53_2 | select    | auto_sel  | 0       |
+|   icmp_ln61_fu_1205_p2                        |     |        | icmp_ln61     | setlt     | auto      | 0       |
+|   select_ln61_fu_1211_p3                      |     |        | select_ln61   | select    | auto_sel  | 0       |
+|   icmp_ln64_fu_1219_p2                        |     |        | icmp_ln64     | setlt     | auto      | 0       |
+|   select_ln64_fu_1224_p3                      |     |        | select_ln64   | select    | auto_sel  | 0       |
+|   icmp_ln70_fu_1232_p2                        |     |        | icmp_ln70     | setlt     | auto      | 0       |
+|   select_ln70_fu_1238_p3                      |     |        | select_ln70   | select    | auto_sel  | 0       |
+|   icmp_ln76_fu_1246_p2                        |     |        | icmp_ln76     | setlt     | auto      | 0       |
+|   select_ln76_fu_1251_p3                      |     |        | select_ln76   | select    | auto_sel  | 0       |
+|   icmp_ln78_fu_1259_p2                        |     |        | icmp_ln78     | setlt     | auto      | 0       |
+|   select_ln78_fu_1264_p3                      |     |        | select_ln78   | select    | auto_sel  | 0       |
+|   add_ln53_1_fu_1313_p2                       |     |        | add_ln53_1    | add       | fabric    | 0       |
+|   add_ln53_2_fu_1319_p2                       |     |        | add_ln53_2    | add       | fabric    | 0       |
+|   add_ln53_3_fu_1324_p2                       |     |        | add_ln53_3    | add       | fabric    | 0       |
+|   icmp_ln53_3_fu_1329_p2                      |     |        | icmp_ln53_3   | seteq     | auto      | 0       |
+|   add_ln53_fu_1334_p2                         |     |        | add_ln53      | add       | fabric    | 0       |
+|   add_ln55_fu_1344_p2                         |     |        | add_ln55      | add       | fabric    | 0       |
+|   add_ln55_1_fu_1361_p2                       |     |        | add_ln55_1    | add       | fabric    | 0       |
+|   add_ln61_4_fu_1581_p2                       |     |        | add_ln61_4    | add       | fabric    | 0       |
+|   icmp_ln61_1_fu_1587_p2                      |     |        | icmp_ln61_1   | seteq     | auto      | 0       |
+|   add_ln61_1_fu_1592_p2                       |     |        | add_ln61_1    | add       | fabric    | 0       |
+|   add_ln61_3_fu_1602_p2                       |     |        | add_ln61_3    | add       | fabric    | 0       |
+|   add_ln61_2_fu_1612_p2                       |     |        | add_ln61_2    | add       | fabric    | 0       |
+|   mul_62s_32s_62_5_1_U263                     | 7   |        | mul_ln61      | mul       | auto      | 4       |
+|   add_ln61_fu_1655_p2                         |     |        | add_ln61      | add       | fabric    | 0       |
+|   icmp_ln63_fu_1627_p2                        |     |        | icmp_ln63     | setne     | auto      | 0       |
+|   icmp_ln63_1_fu_1633_p2                      |     |        | icmp_ln63_1   | setlt     | auto      | 0       |
+|   and_ln63_fu_1638_p2                         |     |        | and_ln63      | and       | auto      | 0       |
+|   icmp_ln76_1_fu_1680_p2                      |     |        | icmp_ln76_1   | seteq     | auto      | 0       |
+|   add_ln76_fu_1685_p2                         |     |        | add_ln76      | add       | fabric    | 0       |
+|   add_ln78_fu_1695_p2                         |     |        | add_ln78      | add       | fabric    | 0       |
+|   mul_62s_32s_62_5_1_U263                     | 7   |        | mul_ln78      | mul       | auto      | 4       |
+|   add_ln78_1_fu_1833_p2                       |     |        | add_ln78_1    | add       | fabric    | 0       |
+|   mul_14s_14s_14_1_1_U264                     | 1   |        | mul_ln89      | mul       | auto      | 0       |
+|   ama_submuladd_14ns_14ns_7ns_8ns_14_4_1_U265 | 1   |        | sub_ln89      | sub       | dsp_slice | 3       |
+|   ama_submuladd_14ns_14ns_7ns_8ns_14_4_1_U265 | 1   |        | mul_ln89_1    | mul       | dsp_slice | 3       |
+|   ama_submuladd_14ns_14ns_7ns_8ns_14_4_1_U265 | 1   |        | row_offset    | add       | dsp_slice | 3       |
+|   ap_return                                   |     |        | select_ln100  | select    | auto_sel  | 0       |
+|  + palm_depthwise_Pipeline_VITIS_LOOP_56_2    | 0   |        |               |           |           |         |
+|    icmp_ln56_fu_773_p2                        |     |        | icmp_ln56     | seteq     | auto      | 0       |
+|    add_ln56_fu_779_p2                         |     |        | add_ln56      | add       | fabric    | 0       |
+|  + palm_depthwise_Pipeline_VITIS_LOOP_64_4    | 0   |        |               |           |           |         |
+|    icmp_ln64_fu_108_p2                        |     |        | icmp_ln64     | setlt     | auto      | 0       |
+|    add_ln64_fu_114_p2                         |     |        | add_ln64      | add       | fabric    | 0       |
+|  + palm_depthwise_Pipeline_VITIS_LOOP_70_5    | 0   |        |               |           |           |         |
+|    icmp_ln70_fu_651_p2                        |     |        | icmp_ln70     | seteq     | auto      | 0       |
+|    add_ln70_fu_657_p2                         |     |        | add_ln70      | add       | fabric    | 0       |
+|    icmp_ln73_fu_685_p2                        |     |        | icmp_ln73     | setne     | auto      | 0       |
+|    icmp_ln73_1_fu_691_p2                      |     |        | icmp_ln73_1   | setlt     | auto      | 0       |
+|    and_ln73_fu_697_p2                         |     |        | and_ln73      | and       | auto      | 0       |
+|    and_ln73_1_fu_703_p2                       |     |        | and_ln73_1    | and       | auto      | 0       |
+|    add_ln73_fu_709_p2                         |     |        | add_ln73      | add       | fabric    | 0       |
+|    cond_fu_745_p3                             |     |        | cond          | select    | auto_sel  | 0       |
+|    add_ln73_1_fu_720_p2                       |     |        | add_ln73_1    | add       | fabric    | 0       |
+|  + palm_depthwise_Pipeline_VITIS_LOOP_78_7    | 0   |        |               |           |           |         |
+|    icmp_ln78_fu_77_p2                         |     |        | icmp_ln78     | setlt     | auto      | 0       |
+|    add_ln78_fu_83_p2                          |     |        | add_ln78      | add       | fabric    | 0       |
+|  + accumulate_row                             | 125 |        |               |           |           |         |
+|    icmp_ln8_fu_7385_p2                        |     |        | icmp_ln8      | seteq     | auto      | 0       |
+|    add_ln8_fu_7391_p2                         |     |        | add_ln8       | add       | fabric    | 0       |
+|    select_ln12_fu_7405_p3                     |     |        | select_ln12   | select    | auto_sel  | 0       |
+|    add_ln12_fu_7417_p2                        |     |        | add_ln12      | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U147                 |     |        | tmp           | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U122         | 3   |        | mul           | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U97         | 2   |        | sum_1         | fadd      | fulldsp   | 4       |
+|    add_ln16_fu_7489_p2                        |     |        | add_ln16      | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U148                 |     |        | tmp_1         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U123         | 3   |        | mul20_1       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U98         | 2   |        | sum_2         | fadd      | fulldsp   | 4       |
+|    add_ln16_1_fu_7540_p2                      |     |        | add_ln16_1    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U149                 |     |        | tmp_2         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U124         | 3   |        | mul20_2       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U99         | 2   |        | sum_3         | fadd      | fulldsp   | 4       |
+|    add_ln16_2_fu_7591_p2                      |     |        | add_ln16_2    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U150                 |     |        | tmp_3         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U125         | 3   |        | mul20_3       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U100        | 2   |        | sum_4         | fadd      | fulldsp   | 4       |
+|    add_ln16_3_fu_7642_p2                      |     |        | add_ln16_3    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U151                 |     |        | tmp_4         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U126         | 3   |        | mul20_4       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U101        | 2   |        | sum_5         | fadd      | fulldsp   | 4       |
+|    add_ln16_4_fu_7693_p2                      |     |        | add_ln16_4    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U152                 |     |        | tmp_5         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U127         | 3   |        | mul20_5       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U102        | 2   |        | sum_6         | fadd      | fulldsp   | 4       |
+|    add_ln16_5_fu_7744_p2                      |     |        | add_ln16_5    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U153                 |     |        | tmp_6         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U128         | 3   |        | mul20_6       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U103        | 2   |        | sum_7         | fadd      | fulldsp   | 4       |
+|    add_ln16_6_fu_7795_p2                      |     |        | add_ln16_6    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U154                 |     |        | tmp_7         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U129         | 3   |        | mul20_7       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U104        | 2   |        | sum_8         | fadd      | fulldsp   | 4       |
+|    add_ln16_7_fu_7846_p2                      |     |        | add_ln16_7    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U155                 |     |        | tmp_8         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U130         | 3   |        | mul20_8       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U105        | 2   |        | sum_9         | fadd      | fulldsp   | 4       |
+|    add_ln16_8_fu_7897_p2                      |     |        | add_ln16_8    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U156                 |     |        | tmp_9         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U131         | 3   |        | mul20_9       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U106        | 2   |        | sum_10        | fadd      | fulldsp   | 4       |
+|    add_ln16_9_fu_7948_p2                      |     |        | add_ln16_9    | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U157                 |     |        | tmp_s         | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U132         | 3   |        | mul20_s       | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U107        | 2   |        | sum_11        | fadd      | fulldsp   | 4       |
+|    add_ln16_10_fu_7999_p2                     |     |        | add_ln16_10   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U158                 |     |        | tmp_10        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U133         | 3   |        | mul20_10      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U108        | 2   |        | sum_12        | fadd      | fulldsp   | 4       |
+|    add_ln16_11_fu_8050_p2                     |     |        | add_ln16_11   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U159                 |     |        | tmp_11        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U134         | 3   |        | mul20_11      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U109        | 2   |        | sum_13        | fadd      | fulldsp   | 4       |
+|    add_ln16_12_fu_8101_p2                     |     |        | add_ln16_12   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U160                 |     |        | tmp_12        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U135         | 3   |        | mul20_12      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U110        | 2   |        | sum_14        | fadd      | fulldsp   | 4       |
+|    add_ln16_13_fu_8152_p2                     |     |        | add_ln16_13   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U161                 |     |        | tmp_13        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U136         | 3   |        | mul20_13      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U111        | 2   |        | sum_15        | fadd      | fulldsp   | 4       |
+|    add_ln16_14_fu_8203_p2                     |     |        | add_ln16_14   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U162                 |     |        | tmp_14        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U137         | 3   |        | mul20_14      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U112        | 2   |        | sum_16        | fadd      | fulldsp   | 4       |
+|    add_ln16_15_fu_8254_p2                     |     |        | add_ln16_15   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U163                 |     |        | tmp_15        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U138         | 3   |        | mul20_15      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U113        | 2   |        | sum_17        | fadd      | fulldsp   | 4       |
+|    add_ln16_16_fu_8305_p2                     |     |        | add_ln16_16   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U164                 |     |        | tmp_16        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U139         | 3   |        | mul20_16      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U114        | 2   |        | sum_18        | fadd      | fulldsp   | 4       |
+|    add_ln16_17_fu_8356_p2                     |     |        | add_ln16_17   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U165                 |     |        | tmp_17        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U140         | 3   |        | mul20_17      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U115        | 2   |        | sum_19        | fadd      | fulldsp   | 4       |
+|    add_ln16_18_fu_8407_p2                     |     |        | add_ln16_18   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U166                 |     |        | tmp_18        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U141         | 3   |        | mul20_18      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U116        | 2   |        | sum_20        | fadd      | fulldsp   | 4       |
+|    add_ln16_19_fu_8458_p2                     |     |        | add_ln16_19   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U167                 |     |        | tmp_19        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U142         | 3   |        | mul20_19      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U117        | 2   |        | sum_21        | fadd      | fulldsp   | 4       |
+|    add_ln16_20_fu_8509_p2                     |     |        | add_ln16_20   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U168                 |     |        | tmp_20        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U143         | 3   |        | mul20_20      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U118        | 2   |        | sum_22        | fadd      | fulldsp   | 4       |
+|    add_ln16_21_fu_8560_p2                     |     |        | add_ln16_21   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U169                 |     |        | tmp_21        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U144         | 3   |        | mul20_21      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U119        | 2   |        | sum_23        | fadd      | fulldsp   | 4       |
+|    add_ln16_22_fu_8611_p2                     |     |        | add_ln16_22   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U170                 |     |        | tmp_22        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U145         | 3   |        | mul20_22      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U120        | 2   |        | sum_24        | fadd      | fulldsp   | 4       |
+|    add_ln16_23_fu_8662_p2                     |     |        | add_ln16_23   | add       | fabric    | 0       |
+|    sparsemux_65_5_32_1_1_U171                 |     |        | tmp_23        | sparsemux | auto      | 0       |
+|    fmul_32ns_32ns_32_4_max_dsp_1_U146         | 3   |        | mul20_23      | fmul      | maxdsp    | 3       |
+|    fadd_32ns_32ns_32_5_full_dsp_1_U121        | 2   |        | sum_25        | fadd      | fulldsp   | 4       |
+|  + palm_depthwise_Pipeline_VITIS_LOOP_92_10   | 0   |        |               |           |           |         |
+|    icmp_ln92_fu_113_p2                        |     |        | icmp_ln92     | setlt     | auto      | 0       |
+|    add_ln92_fu_119_p2                         |     |        | add_ln92      | add       | fabric    | 0       |
++-----------------------------------------------+-----+--------+---------------+-----------+-----------+---------+
+
+
+================================================================
+== Storage Report
+================================================================
++-------------------+---------------+-----------+------+------+--------+----------+------+---------+------------------+
+| Name              | Usage         | Type      | BRAM | URAM | Pragma | Variable | Impl | Latency | Bitwidth, Depth, |
+|                   |               |           |      |      |        |          |      |         | Banks            |
++-------------------+---------------+-----------+------+------+--------+----------+------+---------+------------------+
+| + palm_depthwise  |               |           | 71   | 0    |        |          |      |         |                  |
+|   control_s_axi_U | interface     | s_axilite |      |      |        |          |      |         |                  |
+|   gmem_m_axi_U    | interface     | m_axi     | 4    |      |        |          |      |         |                  |
+|   plane_U         | rom_np array  |           | 2    |      |        | plane    | auto | 1       | 32, 313, 1       |
+|   plane_1_U       | rom_np array  |           | 2    |      |        | plane_1  | auto | 1       | 32, 313, 1       |
+|   plane_2_U       | rom_np array  |           | 2    |      |        | plane_2  | auto | 1       | 32, 313, 1       |
+|   plane_3_U       | rom_np array  |           | 2    |      |        | plane_3  | auto | 1       | 32, 313, 1       |
+|   plane_4_U       | rom_np array  |           | 2    |      |        | plane_4  | auto | 1       | 32, 313, 1       |
+|   plane_5_U       | rom_np array  |           | 2    |      |        | plane_5  | auto | 1       | 32, 313, 1       |
+|   plane_6_U       | rom_np array  |           | 2    |      |        | plane_6  | auto | 1       | 32, 313, 1       |
+|   plane_7_U       | rom_np array  |           | 2    |      |        | plane_7  | auto | 1       | 32, 313, 1       |
+|   plane_8_U       | rom_np array  |           | 2    |      |        | plane_8  | auto | 1       | 32, 313, 1       |
+|   plane_9_U       | rom_np array  |           | 2    |      |        | plane_9  | auto | 1       | 32, 313, 1       |
+|   plane_10_U      | rom_np array  |           | 2    |      |        | plane_10 | auto | 1       | 32, 313, 1       |
+|   plane_11_U      | rom_np array  |           | 2    |      |        | plane_11 | auto | 1       | 32, 313, 1       |
+|   plane_12_U      | rom_np array  |           | 2    |      |        | plane_12 | auto | 1       | 32, 313, 1       |
+|   plane_13_U      | rom_np array  |           | 2    |      |        | plane_13 | auto | 1       | 32, 313, 1       |
+|   plane_14_U      | rom_np array  |           | 2    |      |        | plane_14 | auto | 1       | 32, 313, 1       |
+|   plane_15_U      | rom_np array  |           | 2    |      |        | plane_15 | auto | 1       | 32, 313, 1       |
+|   plane_16_U      | rom_np array  |           | 2    |      |        | plane_16 | auto | 1       | 32, 313, 1       |
+|   plane_17_U      | rom_np array  |           | 2    |      |        | plane_17 | auto | 1       | 32, 313, 1       |
+|   plane_18_U      | rom_np array  |           | 2    |      |        | plane_18 | auto | 1       | 32, 313, 1       |
+|   plane_19_U      | rom_np array  |           | 2    |      |        | plane_19 | auto | 1       | 32, 313, 1       |
+|   plane_20_U      | rom_np array  |           | 2    |      |        | plane_20 | auto | 1       | 32, 313, 1       |
+|   plane_21_U      | rom_np array  |           | 2    |      |        | plane_21 | auto | 1       | 32, 313, 1       |
+|   plane_22_U      | rom_np array  |           | 2    |      |        | plane_22 | auto | 1       | 32, 313, 1       |
+|   plane_23_U      | rom_np array  |           | 2    |      |        | plane_23 | auto | 1       | 32, 313, 1       |
+|   plane_24_U      | rom_np array  |           | 2    |      |        | plane_24 | auto | 1       | 32, 313, 1       |
+|   plane_25_U      | rom_np array  |           | 2    |      |        | plane_25 | auto | 1       | 32, 313, 1       |
+|   plane_26_U      | rom_np array  |           | 2    |      |        | plane_26 | auto | 1       | 32, 313, 1       |
+|   plane_27_U      | rom_np array  |           | 2    |      |        | plane_27 | auto | 1       | 32, 313, 1       |
+|   plane_28_U      | rom_np array  |           | 2    |      |        | plane_28 | auto | 1       | 32, 313, 1       |
+|   plane_29_U      | rom_np array  |           | 2    |      |        | plane_29 | auto | 1       | 32, 313, 1       |
+|   plane_30_U      | rom_np array  |           | 2    |      |        | plane_30 | auto | 1       | 32, 313, 1       |
+|   plane_31_U      | rom_np array  |           | 2    |      |        | plane_31 | auto | 1       | 32, 313, 1       |
+|   raw_U           | ram_1p array  |           | 2    |      |        | raw      | auto | 1       | 32, 96, 1        |
+|   result_U        | ram_s2p array |           | 2    |      |        | result   | auto | 1       | 32, 96, 1        |
++-------------------+---------------+-----------+------+------+--------+----------+------+---------+------------------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+-----------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+| Type            | Options                                                                           | Location                                                                                                                 |
++-----------------+-----------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+| inline          | off                                                                               | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:5 in accumulate_row            |
+| array_partition | variable=plane cyclic factor=32                                                   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:6 in accumulate_row, plane     |
+| array_partition | variable=coeff complete                                                           | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:7 in accumulate_row, coeff     |
+| pipeline        | II=1                                                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:9 in accumulate_row            |
+| loop_flatten    | off                                                                               | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:10 in accumulate_row           |
+| loop_tripcount  | min=3 max=96                                                                      | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:11 in accumulate_row           |
+| unroll          |                                                                                   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:15 in accumulate_row           |
+| interface       | m_axi port=input offset=slave bundle=gmem depth=294912 max_read_burst_length=64   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:27 in palm_depthwise, input    |
+| interface       | m_axi port=weights offset=slave bundle=gmem depth=6400 max_read_burst_length=64   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:28 in palm_depthwise, weights  |
+| interface       | m_axi port=bias offset=slave bundle=gmem depth=256                                | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:29 in palm_depthwise, bias     |
+| interface       | m_axi port=output offset=slave bundle=gmem depth=294912 max_write_burst_length=64 | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:30 in palm_depthwise, output   |
+| interface       | s_axilite port=input bundle=control                                               | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:31 in palm_depthwise, input    |
+| interface       | s_axilite port=weights bundle=control                                             | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:32 in palm_depthwise, weights  |
+| interface       | s_axilite port=bias bundle=control                                                | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:33 in palm_depthwise, bias     |
+| interface       | s_axilite port=output bundle=control                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:34 in palm_depthwise, output   |
+| interface       | s_axilite port=channels bundle=control                                            | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:35 in palm_depthwise, channels |
+| interface       | s_axilite port=height bundle=control                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:36 in palm_depthwise, height   |
+| interface       | s_axilite port=width bundle=control                                               | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:37 in palm_depthwise, width    |
+| interface       | s_axilite port=out_h bundle=control                                               | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:38 in palm_depthwise, out_h    |
+| interface       | s_axilite port=out_w bundle=control                                               | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:39 in palm_depthwise, out_w    |
+| interface       | s_axilite port=stride bundle=control                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:40 in palm_depthwise, stride   |
+| interface       | s_axilite port=pad bundle=control                                                 | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:41 in palm_depthwise, pad      |
+| interface       | s_axilite port=return bundle=control                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:42 in palm_depthwise, return   |
+| array_partition | variable=plane cyclic factor=32                                                   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:50 in palm_depthwise, plane    |
+| array_partition | variable=taps complete                                                            | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:51 in palm_depthwise, taps     |
+| array_partition | variable=coeff complete                                                           | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:52 in palm_depthwise, coeff    |
+| loop_tripcount  | min=32 max=256                                                                    | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:54 in palm_depthwise           |
+| pipeline        | II=1                                                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:57 in palm_depthwise           |
+| loop_tripcount  | min=10 max=100                                                                    | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:62 in palm_depthwise           |
+| pipeline        | II=1                                                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:65 in palm_depthwise           |
+| loop_tripcount  | min=6 max=96                                                                      | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:66 in palm_depthwise           |
+| pipeline        | II=1                                                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:71 in palm_depthwise           |
+| loop_tripcount  | min=10 max=100                                                                    | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:72 in palm_depthwise           |
+| loop_tripcount  | min=6 max=96                                                                      | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:77 in palm_depthwise           |
+| pipeline        | II=1                                                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:79 in palm_depthwise           |
+| loop_tripcount  | min=6 max=96                                                                      | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:80 in palm_depthwise           |
+| pipeline        | off                                                                               | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:84 in palm_depthwise           |
+| unroll          |                                                                                   | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:86 in palm_depthwise           |
+| pipeline        | II=1                                                                              | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:93 in palm_depthwise           |
+| loop_tripcount  | min=6 max=96                                                                      | C:/Users/Lenovo/OneDrive/Desktop/PYNQ-Z2/tools/palm_pl_20261028/src/palm_depthwise_v6.cpp:94 in palm_depthwise           |
++-----------------+-----------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+
+

@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-01",
+  "offline_tests": {
+    "discovered": 97,
+    "passed": 93,
+    "skipped_linux_only": 4,
+    "failed": 0
+  },
+  "ui": "passed",
+  "board_environment_preflight": "passed_read_only",
+  "oled": "passed_user_confirmed_after_rewiring",
+  "dataset_rebuild": "all_four_arrays_equal_to_archive",
+  "export": {
+    "cases": 6,
+    "max_logit_abs_error": 4.00543212890625e-05
+  },
+  "fresh_sd_full_acceptance": false,
+  "full_retraining": false,
+  "hls_vivado_rebuild": false,
+  "original_archive_preserved": true
+}

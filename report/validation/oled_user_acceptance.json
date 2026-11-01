@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-01",
+  "status": "passed",
+  "evidence_type": "user_physical_acceptance",
+  "initial_issue": "用户说明 OLED 接线未接好",
+  "confirmation": "已接好，显示正常",
+  "scope": "OLED 重新接线后正常显示；非新 SD 卡全系统验收"
+}

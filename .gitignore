@@ -49,3 +49,8 @@ data/voice/*.xlsx
 node_modules/
 sim/results/
 sim/eye_presence/fixtures/
+
+# Versioned runtime dependencies are supplied as Release assets
+*.tar.gz
+*.whl
+*.ttf

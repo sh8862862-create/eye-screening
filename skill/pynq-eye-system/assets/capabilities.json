@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-29",
+  "version": "2026-11-01",
   "capabilities": [
     {
       "id": "system",
@@ -9,7 +9,11 @@
         "src/ps/shared/shared_fpga.py",
         "report/organization/current_sources.json"
       ],
-      "requirements": "Python；板端状态需网络与已有服务"
+      "requirements": "Python；板端状态需网络与已有服务",
+      "scope": "版本或环境需要追溯",
+      "usage": "project.py capabilities；snapshot --url <地址> 只读采集；无变更时引用既有清单",
+      "failure_conditions": "地址不可达、文件摘要不符、boot/generation 不明时不推断板端状态",
+      "verified_effect": "sim/results/reproduction/board_preflight.json；现有板环境只读检查通过"
     },
     {
       "id": "camera",
@@ -18,9 +22,17 @@
       "resources": [
         "src/ps/camera_web/service.py",
         "src/ps/camera_web/workers.py",
-        "src/ps/camera_web/device_status.py"
+        "src/ps/camera_web/device_status.py",
+        "src/ps/camera_switch/staged_workflow.py",
+        "src/ps/camera_switch/sequential_camera.py",
+        "src/ps/camera_web/eye_presence.py",
+        "board/config/pynq-camera-web.service"
       ],
-      "requirements": "USB 摄像机、确认角色、网页依赖"
+      "requirements": "USB 摄像机、确认角色、网页依赖",
+      "scope": "双相机顺序采集、照片确认、无眼拦截",
+      "usage": "读取 camera_workflow；新目标先 configure_cameras.py；使用 sim/run_camera_tests.py 和 sim/test_eye_presence.py 验证改动",
+      "failure_conditions": "角色未确认、图片哈希变化、采集未释放、objdetect/XML 缺失时禁止进入分析",
+      "verified_effect": "相机31项中27通过、4项Linux跳过；眼睛检测18项通过，见 offline_tests.log"
     },
     {
       "id": "buttons",
@@ -30,7 +42,11 @@
         "src/ps/shared/button_service.py",
         "board/config/pynq-buttons.service"
       ],
-      "requirements": "GPIO 与网页接口"
+      "requirements": "GPIO 与网页接口",
+      "scope": "BTN0到BTN3与业务状态关联",
+      "usage": "按 camera_workflow 状态表核对 button_service；现场验收矩阵逐项记录",
+      "failure_conditions": "无待确认照片时BTN3不分析；BTN2之后禁止网页续连自动恢复",
+      "verified_effect": "用户确认BTN3进入分析、BTN2关闭且不恢复；report/ai_collaboration.md"
     },
     {
       "id": "voice",
@@ -43,7 +59,11 @@
         "board/firmware/wonderecho/protocol.txt",
         "data/voice/questionnaire_protocol.xlsx"
       ],
-      "requirements": "WonderEcho 5V 与专用 I2C"
+      "requirements": "WonderEcho 5V 与专用 I2C",
+      "scope": "WonderEcho问卷播报与答案读取",
+      "usage": "读取 voice_buttons；核对5V、协议表、wonderecho及固件；诊断入口 voice_check.py",
+      "failure_conditions": "无唤醒回应、供电不符、I2C NACK、协议不匹配时先定位硬件和协议",
+      "verified_effect": "report/voice_handoff_20261025.md；用户确认连续提问"
     },
     {
       "id": "eye_inference",
@@ -55,15 +75,29 @@
         "data/models/eye/mobilenet_v3_small.json",
         "data/models/eye/mobile_unet.onnx"
       ],
-      "requirements": "OpenCV、NumPy、实际图像"
+      "requirements": "OpenCV、NumPy、实际图像",
+      "scope": "固定眼部图像七类分类和两类弱定位",
+      "usage": "project.py infer --image <图像> --output-dir <新目录> --localize；无眼检测属于网页前置门控",
+      "failure_conditions": "输入不支持、模型/元数据不同版、预处理错用时停止；不能由分类置信度证明眼睛存在",
+      "verified_effect": "sim/results/reproduction/export_validation.json；6样例导出误差4.0054e-05；不代表临床性能"
     },
     {
       "id": "training",
       "name": "数据治理重训练导出和阈值",
       "reference": "references/eye_models.md",
-      "resources": [],
-      "requirements": "PyTorch、外部数据集、独立验证划分；先恢复原布局",
+      "resources": [
+        "build/scripts/train_normal7.py",
+        "src/training/train_normal7.py",
+        "src/training/export_normal7.py"
+      ],
+      "requirements": "独立PyTorch环境；训练数据已收集；新增实验独立输出",
+      "scope": "复建数据、训练候选及导出",
+      "usage": "build/scripts/train_normal7.py prepare/train/export；指定独立输出目录",
+      "failure_conditions": "数据缺失、输出已存在、标签/划分不一致、许可范围不清时不覆盖/分发",
+      "verified_effect": "dataset_rebuild.json四数组相等；本轮未重训12个epoch，导出用已有检查点",
       "archive_resources": [
+        "data/training/dataset6.npz",
+        "data/training/normal_500/sources.csv",
         "src/archive/workspace/model_retrain/train_normal7.py",
         "src/archive/workspace/model_retrain/export_normal7.py",
         "src/archive/workspace/model_retrain/refresh_current_threshold.py"
@@ -77,7 +111,11 @@
         "src/ps/eye/report.py",
         "src/ps/camera_web/review.html"
       ],
-      "requirements": "真实推理 JSON 与对应图像"
+      "requirements": "真实推理 JSON 与对应图像",
+      "scope": "照片、模型结果、报告及OLED一致追溯",
+      "usage": "project.py report 或 infer；按 image_sha256、检查号、结果与报告摘要核对",
+      "failure_conditions": "不同检查号、照片或报告被改动时阻止阅片/HID",
+      "verified_effect": "src/ps/camera_web/service.py verify_report；样例生成结果已在上一轮通过"
     },
     {
       "id": "oled",
@@ -87,7 +125,11 @@
         "src/ps/oled/oled_iic.py",
         "src/ps/camera_web/oled_result.py"
       ],
-      "requirements": "Pillow、字体；实屏需板端 I2C"
+      "requirements": "Pillow、字体；实屏需板端 I2C",
+      "scope": "128×64状态及结果显示",
+      "usage": "读取 display_peripherals；先查线/字体/共享I2C，再看显示状态",
+      "failure_conditions": "无ACK、字体缺失或generation不一致时不持续错误写入",
+      "verified_effect": "oled_user_acceptance.json；2026-11-01用户重新接线后确认显示正常"
     },
     {
       "id": "gesture",
@@ -98,7 +140,11 @@
         "src/ps/gesture/hand_tracker.py",
         "sim/run_gesture_tests.py"
       ],
-      "requirements": "NumPy；实物需摄像机和推理模型"
+      "requirements": "NumPy；实物需摄像机和推理模型",
+      "scope": "捏合解锁、食指弯曲/伸直、离手重入",
+      "usage": "读取 gesture_hid；固定帧回放和 sim/run_gesture_tests.py；只对新改动重跑",
+      "failure_conditions": "无新姿态、低置信度、多手、旧帧时停止运动输出；保持交互模式与运动基线分离",
+      "verified_effect": "29项既有测试通过；用户确认弯曲伸直正常和重入无跳动"
     },
     {
       "id": "hid",
@@ -110,7 +156,11 @@
         "src/ps/shared/uart_lite.py",
         "board/config/ch9329-pmoda.conf"
       ],
-      "requirements": "PMODA UART 9600 8N1、USB 连接和报告门控"
+      "requirements": "PMODA UART 9600 8N1、USB 连接和报告门控",
+      "scope": "报告就绪后的CH9329 PMODA控制",
+      "usage": "核对9600/8N1/62.5MHz与report门控；诊断先读状态，明确授权后才发送",
+      "failure_conditions": "报告未就绪、过期seq、租约失效、USB未接主机时不连续重发",
+      "verified_effect": "report/handoff_20261029.md及手势验收记录；不推断任意USB主机兼容"
     },
     {
       "id": "pl",
@@ -120,9 +170,15 @@
         "src/hls/palm_depthwise_v6.cpp",
         "sim/hls/test_depthwise.cpp",
         "build/scripts/build_palm_hls.tcl",
-        "build/scripts/build_palm_overlay.tcl"
+        "build/scripts/build_palm_overlay.tcl",
+        "skill/pynq-eye-system/scripts/compare_results.py",
+        "skill/pynq-eye-system/scripts/check_implementation.py"
       ],
-      "requirements": "Vivado/Vitis HLS 与 PYNQ 板卡"
+      "requirements": "Vivado/Vitis HLS 与 PYNQ 板卡",
+      "scope": "HLS深度卷积与联合Overlay",
+      "usage": "project.py build hls/overlay 默认计划；新实现用check_implementation.py与compare_results.py",
+      "failure_conditions": "工具/IP缺失、时序负裕量、严重DRC、数值超差、DMA未idle时停在相应阶段",
+      "verified_effect": "build/reports/palm_output；历史WNS0.385ns、WHS0.026ns；本轮不重综合"
     },
     {
       "id": "cpu_performance",
@@ -134,6 +190,10 @@
         "data/third_party/ncnn-20261020.zip"
       ],
       "requirements": "ARMv7 工具链、OpenMP、模型与固定输入",
+      "scope": "ncnn/裁剪与分阶段延迟",
+      "usage": "读取 hardware_performance；build ncnn；固定同组warm/cold输入分开统计",
+      "failure_conditions": "预览帧率代替推理、不同组基准相除、跨时钟直接相减时结论无效",
+      "verified_effect": "report/gesture_latency_20261028.md；TRACK 781→466.7ms为保存图口径",
       "archive_resources": [
         "sim/archive/workspace/tools/gesture_latency_20261028/verify_pipeline.py"
       ]
@@ -143,10 +203,15 @@
       "name": "一致发布备份与回退",
       "reference": "references/deployment_recovery.md",
       "resources": [
-        "skill/pynq-eye-system/assets/deployment_map.json",
-        "src/ps/palm/deploy_palm.py"
+        "board/install_fresh.py",
+        "board/restore_runtime.py",
+        "board/preflight.py"
       ],
       "requirements": "已配置板卡、运行状态及备份；不使用过期整目录覆盖",
+      "scope": "新目标安装或已有板一致升级",
+      "usage": "新目标 install_fresh.py；已有板按deployment_recovery备份；release只生成载荷",
+      "failure_conditions": "未知版本、不同目标文件、活跃会话、无备份、DMA未idle时拒绝安装",
+      "verified_effect": "test_fresh_install.py 5项通过；现有板未写入；新SD整机验收仍待做",
       "archive_resources": [
         "board/archive/workspace/shared_fpga/deploy_shared.sh",
         "board/archive/workspace/tools/palm_pl_20261028/deploy_palm.py",
@@ -159,11 +224,15 @@
       "name": "完整闭环验收与工程迁移",
       "reference": "references/acceptance.md",
       "resources": [
-        "sim/verify_repository.py",
         "sim/verify_package.py",
+        "build/scripts/restore_original_layout.py",
         "report/current_release.md"
       ],
-      "requirements": "自动测试依赖与现场硬件分别确认"
+      "requirements": "自动测试依赖与现场硬件分别确认",
+      "scope": "按功能闭环交付及团队迁移",
+      "usage": "复现README验收矩阵；migration_profile和case_record填写迁移差异；新增脚本结果单独记录",
+      "failure_conditions": "只凭文件校验/服务active/模板占位不能判为实物验收",
+      "verified_effect": "validation_summary.json复用上一轮93通过、4跳过；外团队迁移未实测"
     }
   ]
 }

@@ -1,0 +1,5 @@
+{
+  "device": "xc7z020clg400-1",
+  "max_resources": {"lut": 53200, "ff": 106400, "bram": 140, "dsp": 220},
+  "note": "Device capacity example, not a promise of routability or a performance budget. Replace for another project."
+}

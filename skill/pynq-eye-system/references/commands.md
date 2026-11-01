@@ -25,3 +25,7 @@
 
 
 本文件的历史工程路径按 [协作版资源与归档说明](../../../docs/resources.md) 访问。协作版默认 verify 不要求完整归档，工具测试不要求模型或板卡。
+
+## 新增独立校验与构建入口
+
+`build opencv`、`build palm-native` 默认显示计划，明确 `--execute` 后执行。新校验器用法与输入格式见 [复用指南](reuse_guide.md)。完整源码版的相机测试入口为 `python -B sim/run_camera_tests.py`，全新安装测试需先导入全部运行资源。只对发生变化的模块运行检查，已有匹配版本结果直接引用。

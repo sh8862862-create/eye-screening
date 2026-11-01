@@ -1,5 +1,6 @@
 {
-  "edition": "source-collaboration-eye-presence-20261030",
+  "version": "2026-11-01",
+  "scope": "Previous completed evidence reused; only new reusable checks tested in this edition",
   "files": [
     {
       "path": "board/config/ch9329-hid.service",
@@ -12,14 +13,29 @@
       "sha256": "a881f0b05d900b3cedcfa2c77954593be7d2ccd9c18329870f6201501baaac29"
     },
     {
+      "path": "board/config/eye-fonts.conf",
+      "bytes": 256,
+      "sha256": "96171eb9864c448a86b7e436886bdb81e5d4b92f3673986de53c8fa5892d3070"
+    },
+    {
       "path": "board/config/eye-oled.service",
       "bytes": 716,
       "sha256": "61227d6b84c87141fcaf53ac829e4302baf0d6d8cf821c6e4323cdf2f22e2e03"
     },
     {
+      "path": "board/config/opencv-neon.conf",
+      "bytes": 128,
+      "sha256": "ab17bfa6b7ada47f054e175dad75651cd8baae20eb766217739cf1710b8bf585"
+    },
+    {
       "path": "board/config/pynq-buttons.service",
       "bytes": 859,
       "sha256": "85e8755d4c9e5ec2e9a79df2a23da203a12a8c408808b5338888b81703f479e3"
+    },
+    {
+      "path": "board/config/pynq-camera-web.service",
+      "bytes": 985,
+      "sha256": "df2162af6188985def80c7723ab523f4533b5d8dde217831a2b71085e7750433"
     },
     {
       "path": "board/config/pynq-fpga.service",
@@ -182,6 +198,16 @@
       "sha256": "78ff51c38496b7fc8b8ebdb6cc8c1abb02fa6c38427c6848254cdaba57fcce7c"
     },
     {
+      "path": "data/runtime/fonts/dejavusans.ttf",
+      "bytes": 757076,
+      "sha256": "252d320379dd882551c53b75dfb620cb0ffe2d6657445743d79f2100f1d96f21"
+    },
+    {
+      "path": "data/runtime/fonts/droidsansfallbackfull.ttf",
+      "bytes": 4033420,
+      "sha256": "acb6440a713d880a13a21b468ba7cd43f5a2b2934972e51be791c880730777b8"
+    },
+    {
       "path": "data/third_party/ncnn-20261020.zip",
       "bytes": 17501952,
       "sha256": "ca7643d59d50b8ff455edfe4b08c64da0355028ef57d87ac8fa5264d1d18e4ab"
@@ -193,13 +219,13 @@
     },
     {
       "path": "report/current_release.md",
-      "bytes": 1894,
-      "sha256": "137e4a5f8aa42a11c298da92b85c6bdd20e29cf93aa2d8d7e826529a99e50944"
+      "bytes": 2256,
+      "sha256": "0aeeb2655feb5f75a65f1a06267db762cc5c95ab39304136643209edb7fb4e80"
     },
     {
       "path": "report/organization/current_sources.json",
-      "bytes": 5337,
-      "sha256": "1ec5c42ba78d988a80e42f746330c5ff61d7ae9281f07851a57da2fff5e3cd6f"
+      "bytes": 11301,
+      "sha256": "2e4ce0bf112b675bee6e108c1fa80ca86435ad495940ae6b018ec722e53fc292"
     },
     {
       "path": "sim/hls/test_depthwise.cpp",
@@ -217,6 +243,36 @@
       "sha256": "7b83621b0dc74b761cea30bda9bfc13f43655b51da6272584f6ddad00fbad3a0"
     },
     {
+      "path": "skill/README.md",
+      "bytes": 8456,
+      "sha256": "fd2e3c120d3ac14320ca7b4b60ab73951273c21c88cdda7f319ee09e3d251b07"
+    },
+    {
+      "path": "skill/pynq-eye-system/SKILL.md",
+      "bytes": 6192,
+      "sha256": "a2d7f48e9b5697bf587fade531df08dcfb2d328c5b6cf5f09a8cb901deca17eb"
+    },
+    {
+      "path": "skill/pynq-eye-system/assets/capabilities.json",
+      "bytes": 11782,
+      "sha256": "b2af82a444e8945d237116bd988e800473a2a8c616b6c1e0b4826e19c8fc9e47"
+    },
+    {
+      "path": "skill/pynq-eye-system/assets/case_record.md",
+      "bytes": 997,
+      "sha256": "ba90a353e5f852fff60541ca199b159fe208ec04d0682aad1f7829211152d570"
+    },
+    {
+      "path": "skill/pynq-eye-system/assets/implementation_limits.json",
+      "bytes": 229,
+      "sha256": "6d8865ad0a6f4ddf814704cfb14df2eb75c858d8c04bee07b090cc71e3b28455"
+    },
+    {
+      "path": "skill/pynq-eye-system/assets/migration_profile.json",
+      "bytes": 696,
+      "sha256": "bf648d9015a750d060b273807019110d06074cb6d05c4e76573b8b93c896c752"
+    },
+    {
       "path": "skill/pynq-eye-system/assets/palm-fpga.conf",
       "bytes": 148,
       "sha256": "ef14f927d06977f3a0c129875b0324f92b7782096193bf77f5d362767e5756ae"
@@ -232,6 +288,51 @@
       "sha256": "77b6d7579a217e86f5b5b4b5f7a94042ccea1c5bb642756b2cead57008ae0af4"
     },
     {
+      "path": "skill/pynq-eye-system/assets/prompt_workflows.md",
+      "bytes": 3640,
+      "sha256": "065b39f32e51857b2c2c12a285626f4d5a33fe539384a728f0901681cca63ab1"
+    },
+    {
+      "path": "skill/pynq-eye-system/references/capability_contracts.md",
+      "bytes": 309,
+      "sha256": "d3981cab250dcacd4d55129514eb74e0f110808ff44e46a077861be926c104ce"
+    },
+    {
+      "path": "skill/pynq-eye-system/references/commands.md",
+      "bytes": 3155,
+      "sha256": "e8c184895a2dd76e8912f813ae39af96c3f12cdec7252d32036c477482dd8f43"
+    },
+    {
+      "path": "skill/pynq-eye-system/references/evidence_index.md",
+      "bytes": 3751,
+      "sha256": "16f1c3d0665134451140d9849c35cd8024657646d732372bb384647b76291744"
+    },
+    {
+      "path": "skill/pynq-eye-system/references/failure_catalog.md",
+      "bytes": 2826,
+      "sha256": "ec2dcea67bbd797bda6c6199b2f3908195982fa7731b30790777e2d440606106"
+    },
+    {
+      "path": "skill/pynq-eye-system/references/reuse_guide.md",
+      "bytes": 5332,
+      "sha256": "1421aea00a89d348aef1348ab8afcb76667992a53976ce0af0c96139e1cf9c31"
+    },
+    {
+      "path": "skill/pynq-eye-system/scripts/check_implementation.py",
+      "bytes": 5196,
+      "sha256": "10173a80ebaeb311af5508c82d7d7cc2205ca69587b64fbd2f26acd69e49689f"
+    },
+    {
+      "path": "skill/pynq-eye-system/scripts/compare_results.py",
+      "bytes": 4058,
+      "sha256": "43cc686dbf9149df7bb5cf7a276ba0e0f33fabfce5f42122cbcc7a5a14565b06"
+    },
+    {
+      "path": "skill/pynq-eye-system/tests/test_reusable_checks.py",
+      "bytes": 3368,
+      "sha256": "37bd94e06f9348fd3559440bccc52854d6e227a5e9db9846c81c6b12bd007c85"
+    },
+    {
       "path": "src/hls/palm_depthwise_v6.cpp",
       "bytes": 4479,
       "sha256": "6d000279ac97b7e1a2f31f90b41126d23aeec81e466ff395c6964d0aeaaa01a8"
@@ -242,14 +343,49 @@
       "sha256": "2cb6f5ab54346443b7000e90def21d6114d2e0480ede3ad21c1cb71f72a9781b"
     },
     {
+      "path": "src/ps/camera_switch/sequential_camera.py",
+      "bytes": 9219,
+      "sha256": "c4b7354eaf11b8391f0315af48454024950f745a6004549c357b289a9cdfa2a3"
+    },
+    {
+      "path": "src/ps/camera_switch/staged_workflow.py",
+      "bytes": 8976,
+      "sha256": "c379e69c05680b8712d37d2f416ab94e737069abbb2910bfd0c4656ba64e6b8b"
+    },
+    {
+      "path": "src/ps/camera_switch/workflow_process.py",
+      "bytes": 4385,
+      "sha256": "aa2f9a35adc9d713ca93f1fb2e5f6bf114806ed120d4e49d12854d5a28dbf5c5"
+    },
+    {
       "path": "src/ps/camera_web/device_status.py",
       "bytes": 5774,
       "sha256": "1992193d3087c2a57aa996802cef973a583156ddf2f70b1eb46136825b95612d"
     },
     {
+      "path": "src/ps/camera_web/eye_presence.py",
+      "bytes": 6680,
+      "sha256": "a98b99bf2d239447c329b1141a1d63323a201ee0753eff598ff15e606661b375"
+    },
+    {
+      "path": "src/ps/camera_web/eye_presence_models/haarcascade_eye.xml",
+      "bytes": 341406,
+      "sha256": "71cc64fc305a355dc60067880f6fbbd43dd155bd63ee3844661a1bda34b2fd8c"
+    },
+    {
+      "path": "src/ps/camera_web/eye_presence_models/haarcascade_eye_tree_eyeglasses.xml",
+      "bytes": 601661,
+      "sha256": "e32f9c67935c33e9d1331eb14fa58554ff17835c03742663bcb97a892e936a57"
+    },
+    {
       "path": "src/ps/camera_web/gesture_output.py",
       "bytes": 895,
       "sha256": "244cd85b53a990269246b845f7dd2f42841ca59e43815a7a78cbfe6ec3159ec8"
+    },
+    {
+      "path": "src/ps/camera_web/hid_serial.py",
+      "bytes": 2584,
+      "sha256": "492a14282456d80fb3658cc7c0575f8b194e4ea2e987dadd18613b05e1786e92"
     },
     {
       "path": "src/ps/camera_web/index.html",
@@ -272,6 +408,91 @@
       "sha256": "3472261814c6c4384431f906fac4a2f51fcea0c12eb8f5017928680d30eab582"
     },
     {
+      "path": "src/ps/camera_web/vendor/waitress/__init__.py",
+      "bytes": 1370,
+      "sha256": "5ee70bb2085ac1231395400067a4e8379a8a67224dbf78a8958620c7cd766b9a"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/__main__.py",
+      "bytes": 75,
+      "sha256": "e7658922b60a69db068b41bdde310c09f6815da55096e1f2e170667d32d3fbaa"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/adjustments.py",
+      "bytes": 17907,
+      "sha256": "f1ed00a8217a79f5d3ededad82b2cc8b426079d3167839714760ec9a3a8aea12"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/buffers.py",
+      "bytes": 9327,
+      "sha256": "50bf15244d9056a94e4aa6e30cb97a915a02d484361168bd21b854250c5ecc89"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/channel.py",
+      "bytes": 19440,
+      "sha256": "6b44713fd38f8917e6d29a5ab35d1579299d582980bcf5d390df7b70e8018215"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/compat.py",
+      "bytes": 867,
+      "sha256": "c9eeef06fd122d789c8c9eb600b62b97ceb7314c22b3d3caa9b86c8e20124920"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/parser.py",
+      "bytes": 15579,
+      "sha256": "f3c294637d49ced327b97238e8f38714be72607b89e5909ccd5f008fa510b633"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/proxy_headers.py",
+      "bytes": 12336,
+      "sha256": "fa16263b0d4e6de75850aaea3703782d999b1af2ab6729bb172c04bf6343070e"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/receiver.py",
+      "bytes": 5897,
+      "sha256": "e4b4903d525a6d6af2b7067068a2a21e01bcd165cfa3f54b2bab4dc529a1cfa2"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/rfc7230.py",
+      "bytes": 2525,
+      "sha256": "0f5fe455e0896b71bebb88c09e26627854cc7b7c6b31abd38d00c46e3f5205fa"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/runner.py",
+      "bytes": 7615,
+      "sha256": "1c73f38c5998d7a33e93e80828d0cdacc58db84a17fdd207fbde69e2887ee0bc"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/server.py",
+      "bytes": 13752,
+      "sha256": "93fa60086cb5b979d176bfea7a390e67903d8f1745468abb84d043322d23e6c0"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/task.py",
+      "bytes": 21847,
+      "sha256": "fc30d7eb4fde61349094420ef83a6575ddf1532f34ee5b2253edec86eaa984a0"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/trigger.py",
+      "bytes": 7811,
+      "sha256": "98fc875bfc940b7627fa26c8216c13598a917b40c97ae6932ba8af398da8ff71"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/utilities.py",
+      "bytes": 6356,
+      "sha256": "d7d243c4c848323efc00ef810503ffb72df5a935d5204a56be3ca8f4ad812bbd"
+    },
+    {
+      "path": "src/ps/camera_web/vendor/waitress/wasyncore.py",
+      "bytes": 18910,
+      "sha256": "ac7821b11b192a195716ecb3acd742b4ddb02fc6427577cd7a43ec644323066b"
+    },
+    {
+      "path": "src/ps/camera_web/wait_for_address.py",
+      "bytes": 402,
+      "sha256": "f8c103f2bc38282e349e5f783ae5f0a939e4d2edd3485eea89b4859b0990252b"
+    },
+    {
       "path": "src/ps/camera_web/workers.py",
       "bytes": 12966,
       "sha256": "afa6f3c5e7b5243c8a1a64e109be54e10d3828e6f534f7ca578270f86fc40ee6"
@@ -292,9 +513,19 @@
       "sha256": "c1435a41378332d59c288f4a6d8f7128a667bd6083c4af75d00a8088d9235973"
     },
     {
+      "path": "src/ps/gesture/gesture_sender.py",
+      "bytes": 2980,
+      "sha256": "7efb3755f6b2386f3b993f69d92afcd98797097caf52dd4d5c056113571a9738"
+    },
+    {
       "path": "src/ps/gesture/hand_tracker.py",
       "bytes": 6608,
       "sha256": "eb404a4797c7062af08235a110ea032769f1f1c0c77dc9507190b26b299531d4"
+    },
+    {
+      "path": "src/ps/gesture/live_gesture_log.py",
+      "bytes": 10877,
+      "sha256": "37834fd9d1dc6a99e1be764cc0b5cb116200400cccffa266c81332763c7ce18d"
     },
     {
       "path": "src/ps/gesture/mp_handpose.py",
@@ -345,21 +576,7 @@
       "path": "src/ps/shared/wonderecho.py",
       "bytes": 8029,
       "sha256": "f1d0cc14529f73cc3758133a4e613ae0ebbb772f320ad4593daf3f84ed059a0a"
-    },
-    {
-      "path": "src/ps/camera_web/eye_presence.py",
-      "bytes": 6680,
-      "sha256": "a98b99bf2d239447c329b1141a1d63323a201ee0753eff598ff15e606661b375"
-    },
-    {
-      "path": "src/ps/camera_web/eye_presence_models/haarcascade_eye.xml",
-      "bytes": 341406,
-      "sha256": "71cc64fc305a355dc60067880f6fbbd43dd155bd63ee3844661a1bda34b2fd8c"
-    },
-    {
-      "path": "src/ps/camera_web/eye_presence_models/haarcascade_eye_tree_eyeglasses.xml",
-      "bytes": 601661,
-      "sha256": "e32f9c67935c33e9d1331eb14fa58554ff17835c03742663bcb97a892e936a57"
     }
-  ]
+  ],
+  "edition": "source-submission-20261101"
 }

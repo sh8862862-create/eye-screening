@@ -1,0 +1,8 @@
+# Observed Windows host; select matching PyTorch CPU/GPU distribution for target host.
+numpy==2.5.3
+opencv-python==5.0.0.93
+torch==2.14.0
+torchvision==0.29.0
+onnx==1.23.0
+Pillow==12.3.0
+paramiko==5.1.0

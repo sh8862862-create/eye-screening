@@ -188,5 +188,170 @@
     "path": "src/ps/camera_web/eye_presence_models/haarcascade_eye_tree_eyeglasses.xml",
     "bytes": 601661,
     "sha256": "e32f9c67935c33e9d1331eb14fa58554ff17835c03742663bcb97a892e936a57"
+  },
+  {
+    "path": "src/native/palm_native_layer.cpp",
+    "bytes": 2094,
+    "sha256": "a731423c1f17dbd3a044fcad32b82e16eb3b21e039570cfaf3b5c558179d961f"
+  },
+  {
+    "path": "src/ps/camera_switch/sequential_camera.py",
+    "bytes": 9219,
+    "sha256": "c4b7354eaf11b8391f0315af48454024950f745a6004549c357b289a9cdfa2a3"
+  },
+  {
+    "path": "src/ps/camera_switch/staged_workflow.py",
+    "bytes": 8976,
+    "sha256": "c379e69c05680b8712d37d2f416ab94e737069abbb2910bfd0c4656ba64e6b8b"
+  },
+  {
+    "path": "src/ps/camera_switch/workflow_process.py",
+    "bytes": 4385,
+    "sha256": "aa2f9a35adc9d713ca93f1fb2e5f6bf114806ed120d4e49d12854d5a28dbf5c5"
+  },
+  {
+    "path": "src/ps/camera_web/hid_serial.py",
+    "bytes": 2584,
+    "sha256": "492a14282456d80fb3658cc7c0575f8b194e4ea2e987dadd18613b05e1786e92"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/__init__.py",
+    "bytes": 1370,
+    "sha256": "5ee70bb2085ac1231395400067a4e8379a8a67224dbf78a8958620c7cd766b9a"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/__main__.py",
+    "bytes": 75,
+    "sha256": "e7658922b60a69db068b41bdde310c09f6815da55096e1f2e170667d32d3fbaa"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/adjustments.py",
+    "bytes": 17907,
+    "sha256": "f1ed00a8217a79f5d3ededad82b2cc8b426079d3167839714760ec9a3a8aea12"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/buffers.py",
+    "bytes": 9327,
+    "sha256": "50bf15244d9056a94e4aa6e30cb97a915a02d484361168bd21b854250c5ecc89"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/channel.py",
+    "bytes": 19440,
+    "sha256": "6b44713fd38f8917e6d29a5ab35d1579299d582980bcf5d390df7b70e8018215"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/compat.py",
+    "bytes": 867,
+    "sha256": "c9eeef06fd122d789c8c9eb600b62b97ceb7314c22b3d3caa9b86c8e20124920"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/parser.py",
+    "bytes": 15579,
+    "sha256": "f3c294637d49ced327b97238e8f38714be72607b89e5909ccd5f008fa510b633"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/proxy_headers.py",
+    "bytes": 12336,
+    "sha256": "fa16263b0d4e6de75850aaea3703782d999b1af2ab6729bb172c04bf6343070e"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/receiver.py",
+    "bytes": 5897,
+    "sha256": "e4b4903d525a6d6af2b7067068a2a21e01bcd165cfa3f54b2bab4dc529a1cfa2"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/rfc7230.py",
+    "bytes": 2525,
+    "sha256": "0f5fe455e0896b71bebb88c09e26627854cc7b7c6b31abd38d00c46e3f5205fa"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/runner.py",
+    "bytes": 7615,
+    "sha256": "1c73f38c5998d7a33e93e80828d0cdacc58db84a17fdd207fbde69e2887ee0bc"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/server.py",
+    "bytes": 13752,
+    "sha256": "93fa60086cb5b979d176bfea7a390e67903d8f1745468abb84d043322d23e6c0"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/task.py",
+    "bytes": 21847,
+    "sha256": "fc30d7eb4fde61349094420ef83a6575ddf1532f34ee5b2253edec86eaa984a0"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/trigger.py",
+    "bytes": 7811,
+    "sha256": "98fc875bfc940b7627fa26c8216c13598a917b40c97ae6932ba8af398da8ff71"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/utilities.py",
+    "bytes": 6356,
+    "sha256": "d7d243c4c848323efc00ef810503ffb72df5a935d5204a56be3ca8f4ad812bbd"
+  },
+  {
+    "path": "src/ps/camera_web/vendor/waitress/wasyncore.py",
+    "bytes": 18910,
+    "sha256": "ac7821b11b192a195716ecb3acd742b4ddb02fc6427577cd7a43ec644323066b"
+  },
+  {
+    "path": "src/ps/camera_web/wait_for_address.py",
+    "bytes": 402,
+    "sha256": "f8c103f2bc38282e349e5f783ae5f0a939e4d2edd3485eea89b4859b0990252b"
+  },
+  {
+    "path": "src/ps/gesture/gesture_sender.py",
+    "bytes": 2980,
+    "sha256": "7efb3755f6b2386f3b993f69d92afcd98797097caf52dd4d5c056113571a9738"
+  },
+  {
+    "path": "src/ps/gesture/live_gesture_log.py",
+    "bytes": 10877,
+    "sha256": "37834fd9d1dc6a99e1be764cc0b5cb116200400cccffa266c81332763c7ce18d"
+  },
+  {
+    "path": "src/training/export_all6_finetuned.py",
+    "bytes": 3305,
+    "sha256": "f1c4d25b389c3b95eb1ed165cc628258d314b38db12ef7b8fdc23ff6547d070e"
+  },
+  {
+    "path": "src/training/export_normal7.py",
+    "bytes": 2439,
+    "sha256": "388af1945016dcb1770adff59b8bfb83886e4dd2df9820373866f4fe33aa8e3e"
+  },
+  {
+    "path": "src/training/eye_base/__init__.py",
+    "bytes": 57,
+    "sha256": "cb3f4c5abac44369b853eda653424f5397d41548ac185e59b23db089f3601c27"
+  },
+  {
+    "path": "src/training/eye_base/export.py",
+    "bytes": 3132,
+    "sha256": "6cb413701861159573b002fffbb46bb117f85615d6c7869aead6ff645a9e16bf"
+  },
+  {
+    "path": "src/training/eye_base/models.py",
+    "bytes": 2977,
+    "sha256": "387298ea3dc15093b3cda0bdd5c2004d042e0dc4e923a83c3ab9288a367d1db8"
+  },
+  {
+    "path": "src/training/eye_base/prepare_data.py",
+    "bytes": 6626,
+    "sha256": "51f64b76dd6e2ed907b3ecefa2c59fa02539de8640abdff72a4c39f703c2d828"
+  },
+  {
+    "path": "src/training/eye_base/train.py",
+    "bytes": 22070,
+    "sha256": "d67ed63a813cc7694ed7bc69b38b005073e782d90504c941835c80228e956925"
+  },
+  {
+    "path": "src/training/finetune_board_all6.py",
+    "bytes": 7842,
+    "sha256": "47504a7f89bc7feba7cdc6df521bf27d4cfd78b8759d15e591f88745da5a632c"
+  },
+  {
+    "path": "src/training/train_normal7.py",
+    "bytes": 12393,
+    "sha256": "78def42f0e603f2fdab4c66b14e865795179248771d23212bdbf3872ba946d28"
   }
 ]

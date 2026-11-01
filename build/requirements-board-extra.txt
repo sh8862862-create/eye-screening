@@ -1,0 +1,4 @@
+# Existing PYNQ venv only; NumPy/OpenCV/PYNQ supplied by matching base runtime.
+waitress==3.0.2
+pyserial==3.5
+Pillow>=9,<13

@@ -24,3 +24,7 @@
 
 
 本文件的历史工程路径按 [协作版资源与归档说明](../../../docs/resources.md) 访问。协作版默认 verify 不要求完整归档，工具测试不要求模型或板卡。
+
+## 2026-11-01 补充来源
+
+公开汇总见 [同步记录](../../../report/github_sync_20261101.md)、[工程验证汇总](../../../report/validation/validation_summary.json)、[独立校验器结果](../../../report/validation/reusable_checks.json) 与 [OLED 实物反馈](../../../report/validation/oled_user_acceptance.json)。原始会话、训练数据与现场照片保留在完整工程，本次未重复实验。

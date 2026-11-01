@@ -1,0 +1,18 @@
+{
+  "project": null,
+  "target_device": null,
+  "tool_versions": {},
+  "runtime_versions": {},
+  "hardware_owner": null,
+  "consumers": [],
+  "mmio_regions": [],
+  "clocks_mhz": {},
+  "input_contract": {"shape": null, "dtype": null, "layout": null, "preprocessing": null},
+  "output_contract": {"names": [], "meaning": null, "tolerances": null},
+  "golden_reference": {"path": null, "source": null, "input_sha256": null},
+  "resource_budget": {"lut": null, "ff": null, "bram": null, "dsp": null},
+  "evidence_to_reuse": [],
+  "changes_requiring_new_validation": [],
+  "unverified": [],
+  "note": "Fill with measured or documented target facts. Null and empty fields are unknown, never passed."
+}
